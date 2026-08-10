@@ -1742,6 +1742,7 @@ navigation or other website components.
         .swim-venues {
             display: grid;
             gap: 2rem;
+            margin-bottom: 40px;
         }
 
         @media (min-width: 768px) {
@@ -1752,7 +1753,6 @@ navigation or other website components.
 
         .venue-card {
             padding: 1.5rem;
-            margin-bottom: 40px;
             border: 1px solid #e6e6e6;
             border-top: 4px solid #25af7e;
             border-radius: 8px;
