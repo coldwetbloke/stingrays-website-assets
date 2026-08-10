@@ -566,6 +566,10 @@ navigation or other website components.
             box-shadow: 0 8px 20px rgba(0, 0, 0, .08);
         }
 
+        .sting-competition-panel i {
+            color: #25af7e !important;
+        }
+
         .sting-competition-panel h2 {
             margin-top: 0;
             margin-bottom: 14px;
