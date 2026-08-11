@@ -4248,6 +4248,283 @@ flex: 0 0 50% !important;
     }
 }
 
+<style>
+/* =========================================================
+   SCM CONTACT FORM
+   ========================================================= */
+
+#contactForm {
+    width: 100%;
+    max-width: 100%;
+}
+
+
+/* =========================================================
+   MAIN CONTACT FORM CARD
+   ========================================================= */
+
+#contactForm fieldset.form-border:first-of-type {
+    position: relative;
+    margin: 0 0 18px !important;
+    padding: 60px 24px 24px !important;
+    border: 1px solid #e5e5e5 !important;
+    border-top: 4px solid #25af7e !important;
+    border-radius: 8px !important;
+    background: #fff !important;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, .06) !important;
+}
+
+
+/* =========================================================
+   "ALL FIELDS REQUIRED" INSTRUCTION
+   ========================================================= */
+
+/* Hide SCM's original legend */
+#contactForm fieldset.form-border:first-of-type legend.form-border {
+    display: none !important;
+}
+
+/* Recreate as instructional text inside the form */
+#contactForm fieldset.form-border:first-of-type::before {
+    content: "All Fields Required";
+    position: absolute;
+    top: 21px;
+    left: 28px;
+    color: #6c757d;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.4;
+}
+
+/* =========================================================
+   FORM LAYOUT
+   ========================================================= */
+
+/*
+Visually hide SCM labels but retain them in the HTML
+for accessibility.
+*/
+#contactForm .col-form-label {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+
+    padding: 0 !important;
+    margin: -1px !important;
+
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+
+    border: 0 !important;
+}
+
+
+/* Remove Bootstrap row gutters */
+#contactForm .form-group.row {
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+}
+
+
+/* Make every input container full width */
+#contactForm .form-group > .col-sm-8,
+#contactForm .form-group > .selectContainer {
+    flex: 0 0 100% !important;
+    width: 100% !important;
+    max-width: 100% !important;
+
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+}
+
+
+/* Form row spacing */
+#contactForm .form-group {
+    margin-bottom: 16px !important;
+}
+
+
+/* Remove unnecessary space after final query field */
+#contactForm fieldset.form-border:first-of-type .form-group:last-child {
+    margin-bottom: 0 !important;
+}
+
+
+/* =========================================================
+   FORM CONTROLS
+   ========================================================= */
+
+#contactForm .form-control,
+#contactForm .form-select {
+    width: 100% !important;
+    min-height: 46px !important;
+
+    padding: 10px 14px !important;
+
+    border: 1px solid #d7dce1 !important;
+    border-radius: 8px !important;
+
+    background-color: #fff !important;
+    box-shadow: none !important;
+
+    font-size: 16px !important;
+
+    transition:
+        border-color .2s ease,
+        box-shadow .2s ease;
+}
+
+
+/* Textarea */
+#contactForm textarea.form-control {
+    min-height: 150px !important;
+    resize: vertical;
+}
+
+
+/* Focus state */
+#contactForm .form-control:focus,
+#contactForm .form-select:focus {
+    border-color: #25af7e !important;
+    box-shadow: 0 0 0 3px rgba(37, 175, 126, .15) !important;
+    outline: 0 !important;
+}
+
+
+/* =========================================================
+   VALIDATION MESSAGES
+   ========================================================= */
+
+#contactForm .help-block {
+    margin-top: 6px;
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   CAPTCHA / SUBMIT AREA
+
+   SCM generates these inside a second fieldset.
+   Remove the visible fieldset completely.
+   ========================================================= */
+
+#contactForm fieldset.form-border:nth-of-type(2) {
+    margin: 0 !important;
+    padding: 0 24px !important;
+
+    border: 0 !important;
+    border-radius: 0 !important;
+
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+
+/* Hide SCM "Are You Human?" legend */
+#contactForm fieldset.form-border:nth-of-type(2) legend.form-border {
+    display: none !important;
+}
+
+
+/* Remove SCM Bootstrap offsets */
+#contactForm fieldset.form-border:nth-of-type(2) .offset-md-4,
+#contactForm fieldset.form-border:nth-of-type(2) .offset-sm-4 {
+    margin-left: 0 !important;
+}
+
+
+/* Make CAPTCHA / button rows full width */
+#contactForm fieldset.form-border:nth-of-type(2) .col-md-8,
+#contactForm fieldset.form-border:nth-of-type(2) .col-sm-8 {
+    flex: 0 0 100% !important;
+    width: 100% !important;
+    max-width: 100% !important;
+
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+}
+
+
+/* CAPTCHA spacing */
+#contactForm .g-recaptcha {
+    margin: 0 0 14px !important;
+}
+
+/* =========================================================
+   SEND BUTTON
+   ========================================================= */
+
+#contactForm .btn-primary {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 10px !important;
+
+    min-width: 150px !important;
+    padding: 12px 24px !important;
+
+    border: 2px solid #25af7e !important;
+    border-radius: 8px !important;
+
+    background: #25af7e !important;
+    color: #fff !important;
+
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    line-height: 1.2 !important;
+    text-decoration: none !important;
+
+    cursor: pointer;
+
+    transition:
+        background-color .2s ease,
+        color .2s ease,
+        transform .2s ease;
+}
+
+/* Send icon */
+#contactForm .btn-primary::before {
+    content: "\f1d8";
+    font-family: "Font Awesome 7 Free";
+    font-weight: 900;
+    font-size: 15px;
+}
+
+#contactForm .btn-primary:hover,
+#contactForm .btn-primary:focus {
+    background: #fff !important;
+    color: #25af7e !important;
+    border-color: #25af7e !important;
+    transform: translateY(-2px);
+}
+
+#contactForm .btn-primary:focus-visible {
+    outline: 3px solid rgba(37, 175, 126, .25) !important;
+    outline-offset: 2px;
+}  
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 575.98px) {
+
+    #contactForm fieldset.form-border:first-of-type {
+        padding: 60px 18px 18px !important;
+    }
+
+    #contactForm fieldset.form-border:first-of-type::before {
+        left: 22px;
+    }
+
+    #contactForm fieldset.form-border:nth-of-type(2) {
+        padding: 0 18px !important;
+    }
+}
+
+</style>
+
 /*
 =========================================================
 END OF SALISBURY STINGRAYS MASTER STYLESHEET v3.6.0
