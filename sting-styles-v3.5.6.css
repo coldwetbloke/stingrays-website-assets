@@ -4195,6 +4195,18 @@ New event pages should preferably use .sting-event-intro.
     }
 }
 
+/* =========================================================
+   HOME PAGE — MOBILE LANDSCAPE CARD GRID
+   ========================================================= */
+
+@media (orientation: landscape) and (min-width: 576px) and (max-width: 767.98px) {
+
+    .sting-home-card-col {
+        width: 50% !important;
+        flex: 0 0 50% !important;
+    }
+}
+
 /*
 =========================================================
 END OF SALISBURY STINGRAYS MASTER STYLESHEET v3.5.6
