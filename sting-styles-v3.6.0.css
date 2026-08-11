@@ -4207,6 +4207,47 @@ flex: 0 0 50% !important;
     }
 }
 
+/* =========================================================
+   TEMPORARY NOTICE
+   ========================================================= */
+
+.sting-temporary-notice {
+    margin: 30px 0;
+    padding: 20px 24px;
+    border: 1px solid #f0d37a;
+    border-left: 6px solid #f0c040;
+    border-radius: 8px;
+    background: #fff8e5;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, .05);
+}
+
+.sting-temporary-notice h2 {
+    margin-top: 0;
+    margin-bottom: 12px;
+    color: #8a6d00;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.sting-temporary-notice h2 i {
+    margin-right: 8px;
+    color: #8a6d00;
+}
+
+.sting-temporary-notice p {
+    line-height: 1.6;
+}
+
+.sting-temporary-notice p:last-child {
+    margin-bottom: 0;
+}
+
+@media (max-width: 767.98px) {
+    .sting-temporary-notice {
+        padding: 18px;
+    }
+}
+
 /*
 =========================================================
 END OF SALISBURY STINGRAYS MASTER STYLESHEET v3.6.0
