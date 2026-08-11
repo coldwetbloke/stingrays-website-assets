@@ -1,0 +1,4533 @@
+/*
+=========================================================
+SALISBURY STINGRAYS MASTER STYLESHEET
+
+Version:        3.6.0
+Last Updated:   11 August 2026
+
+Bootstrap:      5.3.8
+Font Awesome:   7.2.0 (Classic Solid)
+
+SOURCE
+
+Consolidated from:
+• Stingrays stylesheet v3.0.2
+• Template and design-system updates from v3.0.3
+• Latest calendar, Swim School, venue, Officials and
+  Volunteers page components
+
+CHANGE LOG
+
+v3.5.2 (10 August 2026)
+• Reissued Home Page test stylesheet under a new filename to ensure the latest hero changes are delivered
+• Desktop hero text column uses grid spacing to align with the adjacent photograph
+• Home hero title set to 50px
+• Home hero tagline set to 2rem, weight 600 and Stingrays red
+• Home card H3 headings set to weight 600
+
+v3.0.4 (3 August 2026)
+• Consolidated all current reusable and page-specific styles
+  into one master stylesheet
+• Included the reusable cropped-image component
+• Included the latest Monday-start Swim School calendar styles
+• Included the corrected bank-holiday callout styles
+• Removed the calendar help/question-mark cursor
+• Included Learn to Swim, information, FAQ and terms components
+• Included Training and Teaching Venues cards and final button
+  state overrides
+• Included Officials page components
+• Included Volunteers page components
+• Updated generated icons for Font Awesome 7
+• Retained Bootstrap 5.3.8 compatibility
+• Retained scoped page-link styling through .sting-page
+
+v3.0.5 (7 August 2026)
+• Reconstructed from the complete v3.0.4 master stylesheet
+• Added reusable linked-card states and hover treatment
+• Added current Club Kit page components
+• Added current Home Page components
+• Added current SCM Login page components
+• Added current Club Organisation page components
+• Preserved all v3.0.4 components and compatibility rules
+
+v3.1.0 (7 August 2026)
+• Added reusable full-width Salisbury Stingrays footer component
+• Added full-bleed breakout so the footer background can extend
+  beyond an SCM/Bootstrap container to the viewport edges
+• Added 90% / max-1800px custom footer content container
+• Added CSS Grid desktop distribution for Swimming, Swim School,
+  Club and Contact columns
+• Added responsive two-column and single-column footer layouts
+• Added 170px green/white cross-fade homepage logo treatment
+• Added square 40px contact/social buttons with 8px radius
+• Added SCM footer background/padding override and scoped credit hiding
+• Added stronger branded footer divider
+• Added charity and copyright notice styling
+
+v3.2.0 (8 August 2026)
+• Preserved all v3.1.0 components, page-specific styles and compatibility rules
+• Standardised the reusable house-style page header
+• Retained 42px bold uppercase green H1 styling through .sting-page-title
+• Retained the 60px green underline through .sting-title-line
+• Added reusable .sting-page-subtitle styling at 21px, bold and italic
+• Retained the standard .sting-contact spacing and .sting-btn contact button
+• Added an explicit zero margin to .sting-page-title for consistent header spacing
+• Kept Bootstrap 5.3.8 and Font Awesome 7.2.0 compatibility
+
+v3.2.1 (9 August 2026)
+• Removed obsolete duplicate .sting-role-list rules that used a text tick
+• Retained the current Font Awesome 7 check icon implementation for role lists
+• Removed a duplicate .sting-org-accountable rule block
+• Removed the obsolete v3.0.5 end-of-stylesheet marker
+• Updated stylesheet version and date metadata
+
+v3.3.0 (9 August 2026)
+• Added Club Championships page-specific components
+• Added black colour utility classes for Club Pathway styling
+• Corrected Home Page card equal-height behaviour
+• Retained all v3.2.1 stylesheet cleanup and existing components
+
+v3.4.0 (9 August 2026)
+• Converted the master stylesheet to valid standalone CSS by removing HTML style tags
+• Consolidated duplicate reusable section-heading rules
+• Removed the duplicate Swim School contact-details rule set
+• Removed the superseded first-generation venue button override block
+• Consolidated duplicate linked-card state rules while retaining focus-visible styling
+• Removed a redundant Club Kit section heading
+• Retained all current page components and working SCM compatibility overrides
+
+v3.5.0 (10 August 2026)
+• Removed 55 exact duplicate CSS rule blocks while retaining the final effective definitions
+• Consolidated duplicated Volunteers page styles into the dedicated Volunteers component section
+• Kept shared wave-divider and icon-box components as reusable global components
+• Removed the redundant second-generation force venue-button override block
+• Preserved deliberate high-specificity SCM, Bootstrap and compatibility overrides
+• Retained existing visual behaviour, responsive rules and page-component coverage
+
+v3.5.1 (10 August 2026)
+• Updated the desktop Home Page hero row so the text and image columns fill the same height
+• Aligned the Home Page title with the top of the hero photograph and the contact block with the bottom
+• Rebalanced desktop hero spacing using a four-row grid so spare height is distributed around the introductory text rather than left as one large gap
+• Changed the desktop hero image to fill its column using object-fit: cover
+• Increased the Home Page hero title to 50px
+• Styled the Home Page hero tagline at 2rem, weight 600 and Stingrays red, with stronger overrides for SCM/Bootstrap
+• Increased Home Page card H3 headings to font-weight 600 with an explicit override
+• Scoped the new hero alignment to Bootstrap large screens and above so tablet/mobile behaviour remains unchanged for later review
+
+v3.5.6 (11 August 2026)
+• Added responsive SCM content-width overrides for tablet and mobile layouts
+• Removes the desktop-style boxed content restriction at viewport widths below 992px
+• Targets only the SCM main content container via .site-main > .container
+• Expands #main_content.modern-content to the full available width
+• Keeps .sting-page at 95% width with automatic side margins for comfortable edge spacing
+• Leaves the existing desktop boxed layout unchanged
+
+v3.6.0 (11 August 2026)
+• Reviewed master stylesheet for syntax, brace balance, indentation, ordering and duplicate rule blocks
+• Confirmed no exact duplicate CSS rule blocks remain
+• Standardised indentation and formatting without changing effective styling or responsive behaviour
+• Retained all v3.5.6 SCM tablet/mobile width overrides and current Home Page responsive components
+
+IMPORTANT
+
+Bootstrap and Font Awesome must be loaded by the website.
+Wrap page content in:
+
+<div class="sting-page">
+    ...
+</div>
+
+so the scoped link styling applies without affecting SCM
+navigation or other website components.
+
+=========================================================
+*/
+
+
+/* ===== STINGRAYS COLOURS ===== */
+
+.sting-bg-green {
+    background-color: #25af7e;
+}
+
+.sting-bg-red {
+    background-color: #ed2436;
+}
+
+.sting-bg-black {
+    background-color: #222222;
+}
+
+.sting-text-green {
+    color: #25af7e;
+}
+
+.sting-text-red {
+    color: #ed2436;
+}
+
+.sting-text-black {
+    color: #222222;
+}
+
+.sting-border-green {
+    border-color: #25af7e;
+}
+
+.sting-border-red {
+    border-color: #ed2436;
+}
+
+.sting-border-black {
+    border-color: #222222;
+}
+
+/* ===== PAGE LINKS ===== */
+
+.sting-page a:not(.sting-btn):not(.sting-link-card) {
+    color: #1d8c65 !important;
+    font-weight: 500;
+    text-decoration: underline !important;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
+    transition: color .2s ease;
+}
+
+.sting-page a:not(.sting-btn):not(.sting-link-card):hover,
+.sting-page a:not(.sting-btn):not(.sting-link-card):focus {
+    color: #000 !important;
+    text-decoration: underline !important;
+}
+
+.sting-page a:not(.sting-btn):not(.sting-link-card):visited {
+    color: #1d8c65 !important;
+}
+
+/* ===== PAGE TITLE ===== */
+
+
+.sting-page-heading {
+    margin: 0 0 0.2rem 0;
+}
+
+.sting-page-title {
+    margin: 0;
+    font-size: 42px !important;
+    font-weight: 800 !important;
+    color: #25af7e !important;
+    text-transform: uppercase;
+    letter-spacing: -0.5px;
+    line-height: 1.1;
+}
+
+.sting-title-line {
+    width: 60px;
+    height: 3px;
+    margin: 0.4rem 0 0.6rem 0;
+    background-color: #25af7e;
+    border-radius: 2px;
+}
+
+.sting-page-subtitle {
+    margin: 0;
+    color: rgb(29, 40, 56);
+    font-family: "Trebuchet MS", "Segoe UI", Arial, sans-serif;
+    font-size: 21px;
+    font-weight: 600;
+    font-style: italic;
+    line-height: 42px;
+}
+
+
+/* ===== BUTTONS ===== */
+
+.sting-contact {
+    margin-top: 1rem;
+    margin-bottom: 2.5rem;
+}
+
+.sting-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    border: 2px solid #25af7e !important;
+    border-radius: 8px !important;
+    background: #fff !important;
+    color: #25af7e !important;
+    font-weight: 600;
+    text-decoration: none !important;
+    transition:
+        background-color .25s ease,
+        border-color .25s ease,
+        color .25s ease,
+        transform .25s ease,
+        box-shadow .25s ease;
+}
+
+.sting-btn i {
+    margin-right: 0;
+    color: #25af7e !important;
+    transition: color .25s ease;
+}
+
+.sting-btn:hover,
+.sting-btn:focus {
+    border-color: #25af7e !important;
+    background: #25af7e !important;
+    color: #fff !important;
+    text-decoration: none !important;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(37, 175, 126, .25);
+}
+
+.sting-btn:hover i,
+.sting-btn:focus i {
+    color: #fff !important;
+}
+
+.sting-btn:focus-visible {
+    outline: 3px solid rgba(37, 175, 126, .35);
+    outline-offset: 3px;
+}
+
+/* ===== SHARED DECORATIVE COMPONENTS ===== */
+
+.sting-wave-divider {
+    width: 100%;
+    height: 12px;
+    margin: 30px 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='6' viewBox='0 0 24 8'%3E%3Cpath d='M0 4 Q6 0 12 4 T24 4' fill='none' stroke='%2325af7e' stroke-width='1'/%3E%3C/svg%3E");
+    background-repeat: repeat-x;
+    background-position: center;
+}
+
+.sting-icon-box-row {
+    margin-top: 2rem;
+}
+
+.sting-icon-box-col {
+    margin-bottom: 30px;
+}
+
+.sting-icon-box {
+    height: 100%;
+    overflow: visible;
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, .10);
+}
+
+.sting-icon-box-header {
+    position: relative;
+    height: 60px;
+    overflow: visible;
+    border-radius: 8px 8px 0 0;
+}
+
+.sting-icon-box-circle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: flex;
+    width: 100px;
+    height: 100px;
+    align-items: center;
+    justify-content: center;
+    border: 5px solid #fff;
+    border-radius: 50%;
+    box-shadow: 0 3px 8px 2px rgba(0, 0, 0, .35);
+    transform: translate(-50%, -50%);
+}
+
+.sting-icon-box-circle i {
+    color: #fff;
+    font-size: 42px;
+}
+
+.sting-icon-box-body {
+    min-height: 285px;
+    padding: 40px 25px 30px;
+    text-align: center;
+}
+
+.sting-icon-box-body h3 {
+    margin-top: 0;
+    margin-bottom: 12px;
+    font-size: 21px;
+    font-weight: 700;
+}
+
+.sting-icon-box-body p {
+    margin-bottom: 0;
+    line-height: 1.55;
+    text-align: center;
+}
+
+.sting-icon-box-line {
+    width: 65%;
+    margin: 12px auto 18px;
+    border: 0;
+    border-top: 1px solid #25af7e;
+}
+
+.sting-icon-box-line.sting-border-red {
+    border-top-color: #ed2436;
+}
+
+.sting-icon-box-line.sting-border-green {
+    border-top-color: #25af7e;
+}
+
+@media (max-width: 767.98px) {
+    .sting-page-title {
+        font-size: 34px !important;
+    }
+
+    .sting-icon-box-body {
+        min-height: 0;
+    }
+
+    .sting-icon-box-col {
+        margin-bottom: 40px;
+    }
+}
+
+
+/* ===== DESIGN SYSTEM TEST PAGE ===== */
+
+.sting-demo-section {
+    margin: 45px 0;
+}
+
+.sting-demo-section > h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: #25af7e;
+    font-weight: 700;
+}
+
+.sting-demo-label {
+    display: inline-block;
+    margin-bottom: 10px;
+    padding: 4px 8px;
+    background: #f0f0f0;
+    border-radius: 4px;
+    color: #555;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .5px;
+    text-transform: uppercase;
+}
+
+.sting-demo-swatch {
+    min-height: 110px;
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 8px;
+    color: #fff;
+    display: flex;
+    align-items: flex-end;
+    font-weight: 700;
+}
+
+.sting-demo-panel {
+    margin-bottom: 20px;
+    padding: 20px;
+    border: 1px solid #e6e6e6;
+    border-radius: 8px;
+    background: #fff;
+}
+
+.sting-demo-icon-row i {
+    margin: 0 14px 14px 0;
+    font-size: 28px;
+}
+
+.sting-demo-table {
+    width: 100%;
+    margin-bottom: 0;
+}
+
+.sting-demo-table th,
+.sting-demo-table td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    vertical-align: top;
+}
+
+.sting-demo-table th {
+    background: #f7f7f7;
+}
+
+.sting-demo-spacer {
+    height: 12px;
+}
+
+.sting-demo-grid-box {
+    margin-bottom: 20px;
+    padding: 20px;
+    border: 1px dashed #bbb;
+    border-radius: 8px;
+    background: #fafafa;
+    text-align: center;
+}
+
+@media (max-width: 767.98px) {
+    .sting-demo-section {
+        margin: 35px 0;
+    }
+}
+
+
+
+/* ===== CROPPED IMAGE ===== */
+
+.sting-image-crop {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    background: transparent;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, .12);
+}
+
+.sting-image-crop-sm {
+    height: 240px;
+}
+
+.sting-image-crop-md {
+    height: 340px;
+}
+
+.sting-image-crop-lg {
+    height: 440px;
+}
+
+.sting-image-crop img {
+    position: absolute;
+    inset: 0;
+    width: 100% !important;
+    height: 100% !important;
+    max-width: none !important;
+    max-height: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0;
+    border-radius: 0;
+    object-fit: cover;
+    object-position: center center;
+    display: block;
+    box-shadow: none;
+}
+
+
+/* ===== SWIM SCHOOL CALENDAR ===== */
+
+.ss-calendar-wrap {
+    max-width: 1200px;
+    margin: 0 auto 40px;
+    color: #333;
+}
+
+.ss-info-strip {
+    margin-bottom: 1.2rem;
+    padding: 1rem 1.2rem;
+    border: 1px solid #e6e6e6;
+    border-top: 4px solid #25af7e;
+    border-radius: 10px;
+    background: #fafafa;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, .06);
+    color: #555;
+    font-size: .95rem;
+}
+
+.ss-info-strip .ss-legend {
+    margin-top: 10px;
+}
+
+.ss-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.ss-legend-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 9px;
+    border: 1px solid #e6e6e6;
+    border-radius: 999px;
+    background: #fff;
+    color: #555;
+    font-size: .82rem;
+}
+
+.ss-legend-box {
+    width: 14px;
+    height: 14px;
+    flex: 0 0 14px;
+    border: 1px solid rgba(0, 0, 0, .1);
+    border-radius: 4px;
+}
+
+.ss-legend-sun {
+    background: #dceaef;
+}
+
+.ss-legend-tue {
+    background: #f0d89a;
+}
+
+.ss-legend-thu {
+    background: #f8ccc2;
+}
+
+.ss-legend-holiday {
+    background: rgba(37, 175, 126, .15);
+}
+
+.ss-legend-bank {
+    background: #f59e0b;
+    border-radius: 50%;
+}
+
+.ss-month-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.ss-month {
+    position: relative;
+    overflow: visible;
+    border: 1px solid #e6e6e6;
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, .06);
+}
+
+.ss-month-title {
+    border-radius: 9px 9px 0 0;
+    padding: .75rem 1rem;
+    background: #239f72;
+    color: #fff;
+    font-weight: 700;
+}
+
+.ss-days,
+.ss-dates {
+    display: grid;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+}
+
+.ss-days div {
+    padding: .4rem;
+    background: #f6f6f6;
+    font-size: .7rem;
+    font-weight: 700;
+    text-align: center;
+}
+
+.ss-dates {
+    grid-auto-rows: 70px;
+}
+
+.ss-date {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    padding: 5px;
+    border: 1px solid #eee;
+    background: #fff;
+    font-size: .75rem;
+}
+
+.ss-date.empty {
+    background: #fafafa;
+}
+
+.ss-date.holiday {
+    background: rgba(37, 175, 126, .15);
+}
+
+.ss-date.bank-holiday .ss-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: #f59e0b;
+    color: #fff;
+}
+
+.ss-number {
+    position: relative;
+    margin-bottom: 4px;
+    font-weight: 700;
+}
+
+/*
+     * BANK-HOLIDAY CALLOUT
+     * Uses pseudo-elements to avoid conflicts with Bootstrap/template tooltip CSS.
+     */
+.ss-number.has-tooltip {
+    cursor: default;
+    outline: none;
+}
+
+.ss-number.has-tooltip::before {
+    position: absolute;
+    bottom: calc(100% + 13px);
+    left: 50%;
+    z-index: 10000;
+    visibility: hidden;
+    padding: 8px 12px;
+    border-radius: 7px;
+    background: #333;
+    color: #fff;
+    content: attr(data-tooltip);
+    font-size: .8rem;
+    font-weight: 700;
+    line-height: 1.2;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(-50%);
+    transition: opacity .08s linear, visibility .08s linear;
+    white-space: nowrap;
+}
+
+.ss-number.has-tooltip::after {
+    position: absolute;
+    bottom: calc(100% + 3px);
+    left: 50%;
+    z-index: 10000;
+    visibility: hidden;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #333 transparent transparent transparent;
+    content: "";
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(-50%);
+    transition: opacity .08s linear, visibility .08s linear;
+}
+
+.ss-number.has-tooltip:hover::before,
+.ss-number.has-tooltip:hover::after,
+.ss-number.has-tooltip:focus::before,
+.ss-number.has-tooltip:focus::after {
+    visibility: visible;
+    opacity: 1;
+}
+
+.ss-badge {
+    overflow: hidden;
+    padding: 2px 3px;
+    border: 1px solid rgba(0, 0, 0, .06);
+    border-radius: 4px;
+    font-size: .65rem;
+    font-weight: 600;
+    line-height: 1.15;
+    text-align: center;
+}
+
+.ss-tue {
+    background: #f0d89a;
+}
+
+.ss-thu {
+    background: #f8ccc2;
+}
+
+.ss-sun {
+    background: #dceaef;
+}
+
+@media (max-width: 900px) {
+    .ss-month-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 600px) {
+    .ss-month-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* =========================================================
+   LEARN TO SWIM PAGE-SPECIFIC COMPONENTS
+   ========================================================= */
+
+/* ===== SECTION SPACING ===== */
+
+.sting-page-section {
+    margin-bottom: 40px;
+}
+
+.sting-section-heading {
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: #25af7e;
+    font-weight: 700;
+}
+
+.sting-section-intro {
+    margin-bottom: 25px;
+}
+
+
+/* ===== TEMPORARY NOTICE ===== */
+
+.sting-temporary-notice {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+
+/* ===== INFORMATION BOXES ===== */
+
+.sting-info-row {
+    margin-top: 25px;
+}
+
+.sting-info-col {
+    margin-bottom: 25px;
+}
+
+.sting-info-box {
+    height: 100%;
+    min-height: 190px;
+    padding: 25px;
+    border: 1px solid #e6e6e6;
+    border-top: 4px solid #25af7e;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, .08);
+}
+
+.sting-info-box-red {
+    border-top-color: #ed2436;
+}
+
+.sting-info-box h2,
+.sting-info-box h3 {
+    margin-top: 0;
+    margin-bottom: 12px;
+    font-weight: 700;
+}
+
+.sting-info-box h3 {
+    font-size: 20px;
+}
+
+.sting-info-box p:last-child {
+    margin-bottom: 0;
+}
+
+.sting-info-box i {
+    margin-right: 8px;
+    color: #25af7e;
+}
+
+.sting-info-box-red i {
+    color: #ed2436;
+}
+
+
+/* ===== SWIM SCHOOL STAGES ===== */
+
+.sting-stage-row {
+    margin-top: 25px;
+}
+
+.sting-stage-col {
+    margin-bottom: 25px;
+}
+
+.sting-stage-box {
+    height: 100%;
+    padding: 25px;
+    border: 1px solid #e6e6e6;
+    border-left: 5px solid #25af7e;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, .08);
+}
+
+.sting-stage-box-red {
+    border-left-color: #ed2436;
+}
+
+.sting-stage-box h3 {
+    margin-top: 0;
+    margin-bottom: 12px;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.sting-stage-box p:last-child {
+    margin-bottom: 0;
+}
+
+.sting-stage-box i {
+    margin-right: 8px;
+    color: #25af7e;
+}
+
+.sting-stage-box-red i {
+    color: #ed2436;
+}
+
+
+/* ===== HAT SCHEME IMAGE ===== */
+
+.sting-hat-scheme {
+    margin: 10px 0 30px;
+}
+
+.sting-hat-scheme img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, .10);
+}
+
+
+/* ===== DETAILS LIST ===== */
+
+.sting-detail-panel {
+    padding: 30px;
+    border-radius: 8px;
+    background-color: #f7f7f7;
+}
+
+.sting-detail-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.sting-detail-list li {
+    position: relative;
+    margin-bottom: 16px;
+    padding-left: 30px;
+}
+
+.sting-detail-list li:last-child {
+    margin-bottom: 0;
+}
+
+.sting-detail-list li::before {
+    position: absolute;
+    top: 1px;
+    left: 0;
+    color: #25af7e;
+    content: "";
+    font-family: "Font Awesome 7 Free";
+    font-weight: 900;
+}
+
+
+/* ===== PROFILE CARD ===== */
+
+.sting-profile-card {
+    margin: 10px 0 0;
+    padding: 30px;
+    border: 1px solid #e6e6e6;
+    border-top: 4px solid #25af7e;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, .08);
+}
+
+.sting-profile-content {
+    display: flex;
+    min-height: 200px;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.sting-profile-content h3 {
+    margin-top: 0;
+    margin-bottom: 4px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.sting-profile-role {
+    margin-bottom: 15px;
+    color: #666;
+}
+
+.sting-profile-text {
+    margin-bottom: 0;
+    line-height: 1.6;
+}
+
+.sting-profile-image-wrap {
+    display: flex;
+    min-height: 200px;
+    align-items: center;
+    justify-content: center;
+}
+
+.sting-profile-image {
+    display: block;
+    width: 180px;
+    height: 180px;
+    max-width: 100%;
+    border: 4px solid #f2f2f2;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+}
+
+
+/* ===== LEARN TO SWIM MOBILE ADJUSTMENTS ===== */
+
+@media (max-width: 767.98px) {
+    .sting-info-box {
+        min-height: 0;
+    }
+
+    .sting-info-box,
+    .sting-stage-box {
+        height: auto;
+    }
+
+    .sting-detail-panel {
+        padding: 22px;
+    }
+
+    .sting-profile-card {
+        padding: 25px 20px;
+    }
+
+    .sting-profile-content {
+        min-height: 0;
+        text-align: center;
+    }
+
+    .sting-profile-image-wrap {
+        min-height: 0;
+        margin-top: 25px;
+    }
+
+    .sting-profile-image {
+        width: 160px;
+        height: 160px;
+    }
+}
+
+
+/* =========================================================
+   SWIM SCHOOL INFORMATION PAGE-SPECIFIC COMPONENTS
+   ========================================================= */
+
+.sting-info-content {
+    width: 100%;
+    margin-bottom: 35px;
+}
+
+.sting-info-content h3 {
+    margin-top: 32px;
+    margin-bottom: 12px;
+    color: #25af7e;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+.sting-info-content h3:first-child {
+    margin-top: 0;
+}
+
+.sting-info-content p {
+    margin-bottom: 12px;
+    line-height: 1.6;
+}
+
+.sting-info-content ul {
+    margin-top: 8px;
+    margin-bottom: 25px;
+    padding-left: 22px;
+}
+
+.sting-info-content li {
+    margin-bottom: 8px;
+    line-height: 1.55;
+}
+
+.sting-info-content li:last-child {
+    margin-bottom: 0;
+}
+
+.sting-info-subheading {
+    margin-top: 18px;
+    margin-bottom: 8px !important;
+}
+
+.sting-contact-details {
+    margin-top: 30px;
+    padding: 15px 18px;
+    border: 1px solid #e6e6e6;
+    border-radius: 8px;
+    background: #fafafa;
+}
+
+.sting-contact-details p {
+    margin-bottom: 6px;
+    font-size: 1.2rem;
+}
+
+.sting-contact-details p:last-child {
+    margin-bottom: 0;
+}
+
+@media (max-width: 767.98px) {
+    .sting-info-content h3 {
+        margin-top: 26px;
+    }
+}
+
+
+/* =========================================================
+   SWIM SCHOOL FAQ PAGE-SPECIFIC COMPONENTS
+   ========================================================= */
+
+.swim-faqs {
+    width: 100%;
+    margin: 0 0 30px;
+}
+
+.swim-faqs .acc-item {
+    margin-bottom: 12px;
+    overflow: hidden;
+    border: 1px solid #e5e5e5;
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, .06);
+}
+
+.swim-faqs .acc-toggle {
+    position: absolute;
+    left: -9999px;
+    opacity: 0;
+}
+
+.swim-faqs .acc-summary {
+    position: relative;
+    display: block;
+    margin: 0;
+    padding: 18px 55px 18px 20px;
+    background: #fff;
+    color: #333;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.4;
+    transition: background-color .2s ease, color .2s ease;
+}
+
+.swim-faqs .acc-summary:hover {
+    background: #fafafa;
+    color: #25af7e;
+}
+
+.swim-faqs .acc-summary::after {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    width: 28px;
+    height: 28px;
+    margin-top: -14px;
+    border-radius: 50%;
+    background: #25af7e;
+    color: #fff;
+    content: "+";
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 26px;
+    text-align: center;
+}
+
+.swim-faqs .acc-toggle:focus + .acc-summary {
+    outline: 3px solid rgba(37, 175, 126, .35);
+    outline-offset: -3px;
+}
+
+.swim-faqs .acc-toggle:checked + .acc-summary {
+    background: #25af7e;
+    color: #fff;
+}
+
+.swim-faqs .acc-toggle:checked + .acc-summary::after {
+    background: #fff;
+    color: #25af7e;
+    content: "−";
+}
+
+.swim-faqs .acc-panel {
+    display: none;
+    padding: 5px 22px 18px;
+    border-top: 1px solid #eee;
+    background: #fff;
+}
+
+.swim-faqs .acc-toggle:checked + .acc-summary + .acc-panel {
+    display: block;
+}
+
+.swim-faqs .acc-panel ul {
+    margin: 14px 0 0;
+    padding-left: 22px;
+}
+
+.swim-faqs .acc-panel ul ul {
+    margin-top: 8px;
+    margin-bottom: 5px;
+}
+
+.swim-faqs .acc-panel li {
+    margin-bottom: 8px;
+    line-height: 1.55;
+}
+
+.swim-faqs .acc-panel li:last-child {
+    margin-bottom: 0;
+}
+
+@media (max-width: 767.98px) {
+    .swim-faqs .acc-summary {
+        padding: 15px 48px 15px 16px;
+        font-size: 15px;
+    }
+
+    .swim-faqs .acc-summary::after {
+        right: 14px;
+    }
+
+    .swim-faqs .acc-panel {
+        padding: 4px 16px 16px;
+    }
+}
+
+
+/* =========================================================
+   SWIM SCHOOL TERMS AND CONDITIONS PAGE-SPECIFIC COMPONENTS
+   ========================================================= */
+
+.sting-terms {
+    width: 100%;
+    margin-bottom: 35px;
+}
+
+.sting-terms h3 {
+    margin-top: 32px;
+    margin-bottom: 12px;
+    color: #25af7e;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+.sting-terms h3:first-child {
+    margin-top: 0;
+}
+
+.sting-terms p {
+    margin-bottom: 12px;
+    line-height: 1.6;
+}
+
+.sting-terms ul {
+    margin-top: 8px;
+    margin-bottom: 20px;
+    padding-left: 22px;
+}
+
+.sting-terms li {
+    margin-bottom: 8px;
+    line-height: 1.55;
+}
+
+.sting-terms li:last-child {
+    margin-bottom: 0;
+}
+
+.sting-terms-example {
+    margin: 15px 0 20px;
+    padding: 15px 18px;
+    border-left: 4px solid #25af7e;
+    border-radius: 0 8px 8px 0;
+    background: #f7f7f7;
+}
+
+.sting-terms-example p {
+    margin-bottom: 7px;
+    font-size: 1.2rem;
+}
+
+.sting-terms-example p:last-child {
+    margin-bottom: 0;
+}
+
+@media (max-width: 767.98px) {
+    .sting-terms h3 {
+        margin-top: 26px;
+    }
+}
+
+
+/* =========================================================
+   TRAINING AND TEACHING VENUES PAGE-SPECIFIC COMPONENTS
+   ========================================================= */
+
+.swim-venues {
+    display: grid;
+    gap: 2rem;
+    margin-bottom: 40px;
+}
+
+@media (min-width: 768px) {
+    .swim-venues {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+.venue-card {
+    padding: 1.5rem;
+    border: 1px solid #e6e6e6;
+    border-top: 4px solid #25af7e;
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, .06);
+    transition: transform .18s ease, box-shadow .18s ease;
+}
+
+.venue-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, .10);
+}
+
+.venue-card h3 {
+    margin: 0 0 .5rem;
+    letter-spacing: 1px;
+}
+
+.venue-map {
+    width: 100%;
+    margin-bottom: 1rem;
+    overflow: hidden;
+    border: 3px solid #f2f2f2;
+    border-radius: 8px;
+    aspect-ratio: 3 / 2;
+}
+
+.venue-map iframe {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+.venue-address {
+    margin-bottom: 1rem;
+    color: #444;
+    line-height: 1.5;
+}
+
+.venue-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .6rem;
+}
+
+.venue-button {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: .9rem;
+    font-weight: 500;
+    letter-spacing: .2px;
+    text-decoration: none !important;
+    transition: background-color .2s ease, border-color .2s ease, color .2s ease;
+}
+
+.venue-button-primary {
+    background: #25af7e;
+    color: #fff !important;
+}
+
+.venue-button-primary:hover,
+.venue-button-primary:focus {
+    background: #ed2436;
+    color: #fff !important;
+}
+
+.venue-button-secondary {
+    border: 1px solid #25af7e;
+    background: transparent;
+    color: #25af7e !important;
+}
+
+.venue-button-secondary:hover,
+.venue-button-secondary:focus {
+    border-color: #ed2436;
+    background: #ed2436;
+    color: #fff !important;
+}
+
+.venue-button:focus-visible {
+    outline: 3px solid rgba(37, 175, 126, .35);
+    outline-offset: 2px;
+}
+
+@media (max-width: 767.98px) {
+    .swim-venues {
+        gap: 1.5rem;
+    }
+
+    .venue-card {
+        padding: 1.25rem;
+    }
+}
+
+
+
+/* =========================================================
+   FINAL VENUE BUTTON OVERRIDES
+   Ensures correct colours and removes underlines in all states.
+   ========================================================= */
+
+.sting-page .venue-buttons .venue-button,
+.sting-page .venue-buttons .venue-button:link,
+.sting-page .venue-buttons .venue-button:visited,
+.sting-page .venue-buttons .venue-button:hover,
+.sting-page .venue-buttons .venue-button:focus,
+.sting-page .venue-buttons .venue-button:active,
+.sting-page .venue-buttons .venue-button * {
+    text-decoration: none !important;
+}
+
+/* View Map */
+.sting-page .venue-buttons .venue-button-primary,
+.sting-page .venue-buttons .venue-button-primary:link,
+.sting-page .venue-buttons .venue-button-primary:visited {
+    border: 1px solid #25af7e !important;
+    background: #25af7e !important;
+    color: #ffffff !important;
+}
+
+.sting-page .venue-buttons .venue-button-primary:hover,
+.sting-page .venue-buttons .venue-button-primary:focus,
+.sting-page .venue-buttons .venue-button-primary:active,
+.sting-page .venue-buttons .venue-button-primary:hover *,
+.sting-page .venue-buttons .venue-button-primary:focus *,
+.sting-page .venue-buttons .venue-button-primary:active * {
+    border-color: #ed2436 !important;
+    background: #ed2436 !important;
+    color: #ffffff !important;
+    text-decoration: none !important;
+}
+
+/* what3words */
+.sting-page .venue-buttons .venue-button-secondary,
+.sting-page .venue-buttons .venue-button-secondary:link,
+.sting-page .venue-buttons .venue-button-secondary:visited {
+    border: 1px solid #25af7e !important;
+    background: #ffffff !important;
+    color: #25af7e !important;
+}
+
+.sting-page .venue-buttons .venue-button-secondary:hover,
+.sting-page .venue-buttons .venue-button-secondary:focus,
+.sting-page .venue-buttons .venue-button-secondary:active,
+.sting-page .venue-buttons .venue-button-secondary:hover *,
+.sting-page .venue-buttons .venue-button-secondary:focus *,
+.sting-page .venue-buttons .venue-button-secondary:active * {
+    border-color: #ed2436 !important;
+    background: #ed2436 !important;
+    color: #ffffff !important;
+    text-decoration: none !important;
+}
+
+
+
+/* =========================================================
+   OFFICIALS PAGE-SPECIFIC COMPONENTS
+   ========================================================= */
+
+/* ===== INTRODUCTION ===== */
+
+.sting-officials-intro {
+    margin-bottom: 25px;
+}
+
+.sting-officials-intro .lead {
+    margin-bottom: 15px;
+    line-height: 1.55;
+}
+
+.sting-officials-intro p {
+    line-height: 1.6;
+}
+
+
+/* ===== SECTION HEADINGS ===== */
+
+.sting-subheading {
+    margin-top: 22px;
+    margin-bottom: 12px;
+    color: #333;
+    font-weight: 700;
+}
+
+
+/* ===== OFFICIALS FEATURE BOXES ===== */
+
+.sting-officials-icon-box .sting-icon-box-body {
+    min-height: 265px;
+}
+
+
+/* ===== TEXT AND IMAGE SECTION ===== */
+
+.sting-officials-section {
+    margin-bottom: 25px;
+}
+
+.sting-officials-section p {
+    margin-bottom: 14px;
+    line-height: 1.6;
+}
+
+.sting-officials-section ul {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    padding-left: 22px;
+}
+
+.sting-officials-section li {
+    margin-bottom: 9px;
+    line-height: 1.55;
+}
+
+.sting-officials-main-image {
+    display: block;
+    width: 100%;
+    height: 650px;
+    border-radius: 8px;
+    object-fit: cover;
+    object-position: center;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, .10);
+}
+
+
+/* ===== TRAINING AND BENEFITS ===== */
+
+.sting-content-row {
+    margin-bottom: 35px;
+}
+
+.sting-content-row:last-child {
+    margin-bottom: 0;
+}
+
+.sting-content-row p {
+    margin-bottom: 14px;
+    line-height: 1.6;
+}
+
+.sting-content-image {
+    display: block;
+    width: 100%;
+    height: 320px;
+    border-radius: 8px;
+    object-fit: cover;
+    object-position: center;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, .10);
+}
+
+
+/* ===== CHECK LISTS ===== */
+
+.sting-check-list {
+    margin: 12px 0 20px;
+    padding: 0;
+    list-style: none;
+}
+
+.sting-check-list li {
+    position: relative;
+    margin-bottom: 10px;
+    padding-left: 28px;
+    line-height: 1.55;
+}
+
+.sting-check-list li:last-child {
+    margin-bottom: 0;
+}
+
+.sting-check-list li::before {
+    position: absolute;
+    top: 1px;
+    left: 0;
+    color: #25af7e;
+    content: "";
+    font-family: "Font Awesome 7 Free";
+    font-weight: 900;
+}
+
+.sting-check-list-red li::before {
+    color: #ed2436;
+}
+
+
+/* ===== TRAINING PANEL ===== */
+
+.sting-training-panel {
+    height: 100%;
+    padding: 25px;
+    border: 1px solid #e6e6e6;
+    border-top: 5px solid #25af7e;
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, .08);
+}
+
+.sting-training-panel h2 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: #25af7e;
+    font-weight: 700;
+}
+
+.sting-training-panel h3 {
+    margin-top: 20px;
+    margin-bottom: 12px;
+    font-size: 19px;
+    font-weight: 700;
+}
+
+
+/* ===== BENEFITS PANEL ===== */
+
+.sting-benefits-panel {
+    height: 100%;
+    padding: 25px;
+    border: 1px solid #e6e6e6;
+    border-top: 5px solid #ed2436;
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, .08);
+}
+
+.sting-benefits-panel h2 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: #ed2436;
+    font-weight: 700;
+}
+
+
+/* ===== USEFUL LINKS ===== */
+
+.sting-useful-links {
+    margin-bottom: 35px;
+    padding: 25px;
+    border: 1px solid #e6e6e6;
+    border-left: 5px solid #25af7e;
+    border-radius: 8px;
+    background: #fafafa;
+}
+
+.sting-useful-links h2 {
+    margin-top: 0;
+    margin-bottom: 18px;
+    color: #25af7e;
+    font-weight: 700;
+}
+
+.sting-useful-links-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.sting-useful-links-list li {
+    margin-bottom: 10px;
+}
+
+.sting-useful-links-list li:last-child {
+    margin-bottom: 0;
+}
+
+.sting-page .sting-useful-links-list a,
+.sting-page .sting-useful-links-list a:link,
+.sting-page .sting-useful-links-list a:visited {
+    position: relative;
+    display: block;
+    padding: 12px 42px 12px 16px;
+    border-left: 4px solid #25af7e;
+    background: #fff;
+    color: #333 !important;
+    font-weight: 600;
+    text-decoration: none !important;
+    transition:
+        background-color .2s ease,
+        color .2s ease,
+        transform .2s ease;
+}
+
+.sting-page .sting-useful-links-list a::after {
+    position: absolute;
+    top: 50%;
+    right: 16px;
+    color: #25af7e;
+    content: "";
+    font-family: "Font Awesome 7 Free";
+    font-weight: 900;
+    transform: translateY(-50%);
+}
+
+.sting-page .sting-useful-links-list a:hover,
+.sting-page .sting-useful-links-list a:focus,
+.sting-page .sting-useful-links-list a:active {
+    background: #25af7e;
+    color: #fff !important;
+    text-decoration: none !important;
+    transform: translateX(4px);
+}
+
+.sting-page .sting-useful-links-list a:hover::after,
+.sting-page .sting-useful-links-list a:focus::after,
+.sting-page .sting-useful-links-list a:active::after {
+    color: #fff;
+}
+
+
+/* ===== CONTACT PANEL ===== */
+
+.sting-officials-contact {
+    margin-top: 30px;
+    margin-bottom: 35px;
+    padding: 25px;
+    border: 1px solid #e6e6e6;
+    border-left: 5px solid #ed2436;
+    border-radius: 8px;
+    background: #fafafa;
+}
+
+.sting-officials-contact h2 {
+    margin-top: 0;
+    margin-bottom: 12px;
+    color: #ed2436;
+    font-weight: 700;
+}
+
+.sting-officials-contact p {
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
+
+.sting-officials-contact p:last-child {
+    margin-bottom: 0;
+}
+
+
+/* ===== MOBILE ADJUSTMENTS ===== */
+
+@media (max-width: 767.98px) {
+    .sting-officials-icon-box .sting-icon-box-body {
+        min-height: 0;
+    }
+
+    .sting-officials-main-image {
+        height: 380px;
+        margin-top: 20px;
+    }
+
+    .sting-content-image {
+        height: 280px;
+        margin-top: 20px;
+    }
+
+    .sting-training-panel,
+    .sting-benefits-panel,
+    .sting-useful-links,
+    .sting-officials-contact {
+        padding: 20px;
+    }
+}
+
+
+/* =========================================================
+   VOLUNTEERS PAGE-SPECIFIC COMPONENTS
+   ========================================================= */
+
+/* ===== INTRODUCTION ===== */
+
+.sting-volunteer-intro {
+    margin-bottom: 25px;
+}
+
+.sting-volunteer-intro .lead {
+    margin-bottom: 15px;
+    line-height: 1.55;
+}
+
+.sting-volunteer-intro p {
+    line-height: 1.6;
+}
+
+
+/* ===== TEXT AND IMAGE ===== */
+
+.sting-volunteer-section {
+    margin-top: 15px;
+    margin-bottom: 20px;
+}
+
+.sting-volunteer-section h2 {
+    margin-top: 0;
+    margin-bottom: 18px;
+    color: #25af7e;
+    font-weight: 700;
+}
+
+.sting-volunteer-section > div {
+    margin-bottom: 20px;
+}
+
+.sting-volunteer-image {
+    display: block;
+    width: 100%;
+    height: 430px;
+    border-radius: 8px;
+    object-fit: cover;
+    object-position: center;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, .12);
+}
+
+.sting-volunteer-image-wrap {
+    position: relative;
+    height: 340px;
+    overflow: hidden;
+    border-radius: 8px;
+    background: transparent;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, .12);
+}
+
+.sting-volunteer-image-wrap .sting-volunteer-image {
+    position: absolute;
+    inset: 0;
+    width: 100% !important;
+    height: 100% !important;
+    max-width: none !important;
+    max-height: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0;
+    border-radius: 0;
+    object-fit: cover;
+    object-position: center center;
+    display: block;
+    box-shadow: none;
+}
+
+.sting-image-caption {
+    margin-top: 10px;
+    line-height: 1.4;
+    text-align: center;
+}
+
+.sting-involved-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.sting-involved-list li {
+    position: relative;
+    min-height: 54px;
+    margin-bottom: 15px;
+    padding: 0 0 15px 58px;
+    border-bottom: 1px solid #eee;
+    line-height: 1.55;
+}
+
+.sting-involved-list li:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: 0;
+}
+
+.sting-involved-icon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    width: 42px;
+    height: 42px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: #fff;
+}
+
+.sting-involved-icon i {
+    font-size: 18px;
+}
+
+.sting-involved-list strong {
+    display: block;
+    margin-bottom: 3px;
+    font-size: 16px;
+}
+
+
+/* ===== WAYS TO HELP ===== */
+
+.sting-help-section h2 {
+    margin-top: 0;
+    margin-bottom: 12px;
+    color: #25af7e;
+    font-weight: 700;
+}
+
+.sting-help-intro {
+    margin-bottom: 22px;
+    line-height: 1.6;
+}
+
+.sting-help-card-col {
+    margin-bottom: 25px;
+}
+
+.sting-help-card {
+    height: 100%;
+    min-height: 190px;
+    padding: 22px;
+    border: 1px solid #e6e6e6;
+    border-top: 4px solid #25af7e;
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 0 5px 14px rgba(0, 0, 0, .07);
+    text-align: center;
+}
+
+.sting-help-card.sting-help-card-red {
+    border-top-color: #ed2436;
+}
+
+.sting-help-card i {
+    margin-bottom: 12px;
+    color: #25af7e;
+    font-size: 34px;
+}
+
+.sting-help-card.sting-help-card-red i {
+    color: #ed2436;
+}
+
+.sting-help-card h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 19px;
+    font-weight: 700;
+}
+
+.sting-help-card p {
+    margin-bottom: 0;
+    line-height: 1.5;
+}
+
+
+/* ===== ROLE LISTS ===== */
+
+.sting-role-list {
+    margin: 12px 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+.sting-role-list li {
+    position: relative;
+    margin-bottom: 9px;
+    padding-left: 27px;
+    line-height: 1.5;
+}
+
+.sting-role-list li:last-child {
+    margin-bottom: 0;
+}
+
+.sting-role-list li::before {
+    position: absolute;
+    top: 1px;
+    left: 0;
+    color: #25af7e;
+    content: "";
+    font-family: "Font Awesome 7 Free";
+    font-weight: 900;
+}
+
+
+/* ===== CALLOUT ===== */
+
+.sting-volunteer-callout {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    padding: 28px;
+    border-radius: 8px;
+    color: #fff;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, .12);
+}
+
+.sting-volunteer-callout h2 {
+    margin-top: 0;
+    margin-bottom: 12px;
+    color: #fff !important;
+    font-weight: 700;
+}
+
+.sting-volunteer-callout p {
+    margin-bottom: 12px;
+    line-height: 1.6;
+}
+
+.sting-volunteer-callout p:last-child {
+    margin-bottom: 0;
+}
+
+.sting-volunteer-callout i {
+    margin-right: 8px;
+}
+
+
+/* ===== COMPETITION ROLES ===== */
+
+.sting-competition-panel {
+    margin-bottom: 30px;
+    padding: 30px;
+    border: 1px solid #e6e6e6;
+    border-top: 5px solid #25af7e;
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, .08);
+}
+
+.sting-competition-panel i {
+    color: #25af7e !important;
+}
+
+.sting-competition-panel h2 {
+    margin-top: 0;
+    margin-bottom: 14px;
+    color: #25af7e;
+    font-weight: 700;
+}
+
+.sting-competition-panel > p {
+    margin-bottom: 22px;
+    line-height: 1.6;
+}
+
+.sting-role-group {
+    margin-bottom: 22px;
+}
+
+.sting-role-group h3 {
+    margin-top: 0;
+    margin-bottom: 12px;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.sting-role-group h3 i {
+    width: 24px;
+    margin-right: 6px;
+    color: #ed2436;
+    text-align: center;
+}
+
+
+/* ===== GOOD TO KNOW ===== */
+
+.sting-good-to-know {
+    margin-bottom: 30px;
+}
+
+.sting-good-to-know-col {
+    margin-bottom: 20px;
+}
+
+.sting-good-to-know-item {
+    height: 100%;
+    min-height: 190px;
+    padding: 20px;
+    border: 1px solid #e6e6e6;
+    border-radius: 8px;
+    background: #fafafa;
+    text-align: center;
+}
+
+.sting-good-to-know-item i {
+    margin-bottom: 10px;
+    color: #25af7e;
+    font-size: 30px;
+}
+
+.sting-good-to-know-item-red i {
+    color: #ed2436;
+}
+
+.sting-good-to-know-item h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.sting-good-to-know-item p {
+    margin-bottom: 0;
+    line-height: 1.5;
+}
+
+
+/* ===== FEATURED VOLUNTEER OPPORTUNITY ===== */
+
+.sting-event-cta {
+    position: relative;
+    margin: 35px 0;
+    padding: 30px;
+    border-top: 5px solid #25af7e;
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, .08);
+}
+
+.sting-event-badge {
+    position: absolute;
+    top: 22px;
+    right: 24px;
+    display: flex;
+    align-items: center;
+}
+
+.sting-event-badge-icon {
+    width: 46px;
+    height: 46px;
+    flex-shrink: 0;
+    border-radius: 4px;
+    background: #ed2436;
+    color: #fff;
+    line-height: 46px;
+    text-align: center;
+}
+
+.sting-event-badge-icon i {
+    font-size: 24px;
+    line-height: 46px;
+}
+
+.sting-event-badge-text {
+    margin-left: 12px;
+    line-height: 1.15;
+}
+
+.sting-event-badge-title {
+    display: block;
+    color: #ed2436;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.sting-event-badge-subtitle {
+    display: block;
+    margin-top: 3px;
+    color: #777;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.sting-event-cta h2 {
+    margin-top: 0;
+    margin-bottom: 12px;
+    padding-right: 230px;
+    color: #25af7e;
+    font-weight: 700;
+}
+
+.sting-event-cta p {
+    margin-bottom: 14px;
+    line-height: 1.6;
+}
+
+.sting-event-cta-details {
+    margin: 18px 0 22px;
+    padding: 18px;
+    border: 1px solid #e6e6e6;
+    border-radius: 8px;
+    background: #fafafa;
+}
+
+.sting-event-cta-details p {
+    margin-bottom: 8px;
+}
+
+.sting-event-cta-details p:last-child {
+    margin-bottom: 0;
+}
+
+.sting-event-cta-details i {
+    width: 22px;
+    margin-right: 6px;
+    color: #25af7e;
+    text-align: center;
+}
+
+.sting-event-signup {
+    text-align: center;
+}
+
+
+/* ===== CONTACT PANEL ===== */
+
+.sting-volunteer-contact {
+    margin-top: 35px;
+    margin-bottom: 35px;
+    padding: 25px;
+    border: 1px solid #e6e6e6;
+    border-left: 5px solid #25af7e;
+    border-radius: 8px;
+    background: #fafafa;
+}
+
+.sting-volunteer-contact h2 {
+    margin-top: 0;
+    margin-bottom: 12px;
+    color: #25af7e;
+    font-weight: 700;
+}
+
+.sting-volunteer-contact p {
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
+
+.sting-volunteer-contact p:last-child {
+    margin-bottom: 0;
+}
+
+
+/* ===== MOBILE ADJUSTMENTS ===== */
+
+@media (max-width: 767.98px) {
+    .sting-event-cta {
+        padding: 22px;
+    }
+
+    .sting-event-badge {
+        position: static;
+        justify-content: flex-start;
+        margin-bottom: 18px;
+    }
+
+    .sting-event-cta h2 {
+        padding-right: 0;
+    }
+
+    .sting-event-badge-text {
+        white-space: normal;
+    }
+
+    .sting-volunteer-image {
+        height: 360px;
+        margin-top: 5px;
+    }
+
+    .sting-volunteer-section > div {
+        margin-bottom: 25px;
+    }
+
+    .sting-help-card {
+        min-height: 0;
+    }
+
+    .sting-competition-panel {
+        padding: 22px;
+    }
+
+    .sting-good-to-know-item {
+        min-height: 0;
+    }
+
+    .sting-volunteer-contact,
+    .sting-volunteer-callout {
+        padding: 20px;
+    }
+}
+
+
+
+/* =========================================================
+   V3.0.5 LINKED CARD COMPONENT
+   ========================================================= */
+
+.sting-page a.sting-link-card,
+.sting-page a.sting-link-card:link,
+.sting-page a.sting-link-card:visited,
+.sting-page a.sting-link-card:hover,
+.sting-page a.sting-link-card:focus,
+.sting-page a.sting-link-card:active {
+    display: block;
+    color: inherit !important;
+    text-decoration: none !important;
+    transition: transform .2s ease;
+}
+
+.sting-page a.sting-link-card h3,
+.sting-page a.sting-link-card p {
+    color: inherit !important;
+    text-decoration: none !important;
+}
+
+.sting-page a.sting-link-card:hover .sting-scm-feature-card,
+.sting-page a.sting-link-card:focus .sting-scm-feature-card {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 22px rgba(0, 0, 0, .12);
+}
+
+
+
+/* =========================================================
+   CLUB KIT PAGE-SPECIFIC COMPONENTS
+   ========================================================= */
+
+.sting-kit-layout {
+    margin-bottom: 40px;
+}
+
+.sting-kit-column {
+    margin-bottom: 30px;
+}
+
+.sting-kit-order-box,
+.sting-kit-window-box,
+.sting-kit-image-panel {
+    border: 1px solid #e6e6e6;
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, .08);
+}
+
+.sting-kit-order-box {
+    margin-bottom: 18px;
+    padding: 24px;
+    border-top: 4px solid #25af7e;
+}
+
+.sting-kit-order-heading,
+.sting-kit-window-heading {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 0 0 14px;
+    color: #25af7e;
+    font-weight: 700;
+}
+
+.sting-kit-order-icon,
+.sting-kit-window-icon,
+.sting-kit-note-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 auto;
+    border-radius: 50%;
+}
+
+.sting-kit-order-icon {
+    width: 44px;
+    height: 44px;
+    border: 2px solid #25af7e;
+    color: #25af7e;
+    font-size: 20px;
+}
+
+.sting-kit-shop-link,
+.sting-kit-shop-link:link,
+.sting-kit-shop-link:visited {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 8px;
+    color: #ed2436 !important;
+    font-weight: 700;
+    text-decoration: none !important;
+}
+
+.sting-kit-shop-link:hover,
+.sting-kit-shop-link:focus,
+.sting-kit-shop-link:active {
+    color: #25af7e !important;
+    text-decoration: none !important;
+}
+
+.sting-kit-window-box {
+    padding: 24px;
+}
+
+.sting-kit-window-icon {
+    width: 42px;
+    height: 42px;
+    background: #25af7e;
+    color: #fff;
+    font-size: 19px;
+}
+
+.sting-kit-window-heading {
+    padding-bottom: 10px;
+    border-bottom: 2px solid #25af7e;
+}
+
+.sting-kit-window-intro {
+    margin-bottom: 16px;
+    line-height: 1.6;
+}
+
+.sting-kit-window-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    border: 1px solid #e6e6e6;
+    border-radius: 8px;
+    background: #fff;
+}
+
+.sting-kit-window-list li {
+    position: relative;
+    margin: 0 18px;
+    padding: 14px 0 14px 34px;
+    border-bottom: 1px solid #e6e6e6;
+    line-height: 1.5;
+}
+
+.sting-kit-window-list li:last-child {
+    border-bottom: 0;
+}
+
+.sting-kit-window-number {
+    position: absolute;
+    top: 14px;
+    left: 0;
+    color: #25af7e;
+    font-weight: 700;
+}
+
+.sting-kit-window-current {
+    color: #111;
+    font-weight: 700;
+}
+
+.sting-kit-window-final,
+.sting-kit-window-final .sting-kit-window-number {
+    color: #ed2436;
+}
+
+.sting-kit-note {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    margin-top: 18px;
+    padding: 16px 18px;
+    border-radius: 8px;
+    background: rgba(37, 175, 126, .10);
+}
+
+.sting-kit-note-icon {
+    width: 38px;
+    height: 38px;
+    border: 2px solid #25af7e;
+    color: #25af7e;
+    font-size: 18px;
+}
+
+.sting-kit-note p {
+    margin: 0;
+    line-height: 1.6;
+}
+
+.sting-kit-image-panel {
+    padding: 16px;
+    border-color: #25af7e;
+}
+
+.sting-kit-image-link {
+    display: block;
+    text-decoration: none !important;
+}
+
+.sting-kit-image-link:hover,
+.sting-kit-image-link:focus {
+    text-decoration: none !important;
+}
+
+.sting-kit-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+}
+
+@media (max-width: 767.98px) {
+
+    .sting-kit-order-box,
+    .sting-kit-window-box {
+        padding: 20px;
+    }
+
+    .sting-kit-window-list li {
+        margin: 0 14px;
+    }
+
+    .sting-kit-image-panel {
+        padding: 12px;
+    }
+}
+
+
+
+/* =========================================================
+   HOME PAGE COMPONENTS
+   ========================================================= */
+
+/* ===== HOME PAGE LAYOUT ===== */
+
+.sting-home-hero {
+    margin-bottom: 40px;
+    align-items: center;
+}
+
+@media (min-width: 992px) {
+    .sting-home-hero {
+        align-items: stretch;
+    }
+
+    .sting-home-hero-copy {
+        display: grid;
+        grid-template-rows: auto auto minmax(0, 1fr) auto;
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+
+    .sting-home-hero-copy .sting-home-hero-title {
+        margin-bottom: .65rem;
+    }
+
+    .sting-home-hero-copy .h3 {
+        margin: 0;
+    }
+
+    .sting-home-hero-copy .lead {
+        align-self: center;
+        margin: 1.5rem 0 !important;
+        line-height: 1.65;
+    }
+
+    .sting-home-hero-copy .sting-contact {
+        align-self: start;
+        margin: 0 !important;
+    }
+
+    .sting-home-hero-image {
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+}
+
+.sting-home-hero-title {
+    margin: 0 0 .2rem;
+    font-size: 50px;
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -.5px;
+    text-transform: uppercase;
+}
+
+.sting-home-hero-copy .h3 {
+    color: #ed2436 !important;
+    font-size: 2rem !important;
+    font-weight: 600 !important;
+}
+
+.sting-home-hero-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, .12);
+}
+
+.sting-home-card-row {
+    align-items: stretch;
+}
+
+.sting-home-card-col {
+    display: flex;
+    align-items: stretch;
+    margin-bottom: 30px;
+}
+
+.sting-home-card-link {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: stretch;
+    color: inherit !important;
+    text-decoration: none !important;
+}
+
+.sting-home-card-link:hover,
+.sting-home-card-link:focus,
+.sting-home-card-link:visited {
+    color: inherit !important;
+    text-decoration: none !important;
+}
+
+.sting-home-card {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    overflow: hidden;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.sting-home-card:hover,
+.sting-home-card-link:focus .sting-home-card {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, .15);
+}
+
+.sting-home-card-image {
+    position: relative;
+    display: block !important;
+    width: 100%;
+    aspect-ratio: 3 / 2;
+    flex: 0 0 auto;
+    overflow: hidden;
+}
+
+.sting-home-card-image img {
+    position: absolute;
+    inset: 0;
+    width: 100% !important;
+    height: 100% !important;
+    max-width: none !important;
+    max-height: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    object-fit: cover;
+    display: block;
+}
+
+.sting-home-card-content {
+    flex: 1;
+    padding: 25px;
+    text-align: center;
+}
+
+.sting-home-card-content h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-weight: 600 !important;
+    letter-spacing: 1px;
+}
+
+.sting-home-panel {
+    margin: 40px 0;
+    padding: 35px;
+    border-top: 6px solid #25af7e;
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, .08);
+}
+
+.sting-home-panel h2 {
+    margin-top: 0;
+    color: #25af7e;
+    font-weight: 700;
+}
+
+.sting-home-panel-row {
+    align-items: center;
+}
+
+.sting-home-affiliations {
+    margin: 50px 0 30px;
+}
+
+.sting-home-affiliations-title {
+    margin-bottom: 35px;
+    color: #25af7e;
+    font-weight: 700;
+    text-align: center;
+}
+
+.sting-home-affiliation-col {
+    display: flex;
+    margin-bottom: 25px;
+}
+
+.sting-home-affiliation-card {
+    width: 100%;
+    min-height: 360px;
+    padding: 28px 22px;
+    border: 1px solid #e5e5e5;
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, .05);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+}
+
+.sting-home-affiliation-logo-wrap {
+    height: 160px;
+    margin-bottom: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sting-home-affiliation-logo-large {
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 140px;
+}
+
+.sting-home-affiliation-logo-small {
+    width: auto;
+    height: auto;
+    max-width: 110px;
+    max-height: 110px;
+}
+
+.sting-home-affiliation-card h3 {
+    margin-top: 0;
+    margin-bottom: 18px;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.sting-home-affiliation-card p {
+    margin-bottom: 22px;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.sting-home-affiliation-link {
+    font-weight: 600;
+}
+
+@media (max-width: 991.98px) {
+    .sting-home-hero {
+        margin-bottom: 25px;
+    }
+
+    .sting-home-hero-copy {
+        margin-bottom: 30px;
+        text-align: center;
+    }
+
+    .sting-home-affiliation-card {
+        min-height: 0;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .sting-home-hero-title {
+        font-size: 34px;
+    }
+
+    .sting-home-panel {
+        padding: 24px;
+    }
+
+    .sting-home-panel .text-center {
+        margin-top: 20px;
+    }
+}
+
+
+
+/* =========================================================
+   SCM LOGIN COMPONENTS
+   ========================================================= */
+
+/* ===== SCM FEATURE CARDS ===== */
+
+.sting-scm-feature-grid {
+    margin-top: 28px;
+    margin-bottom: 36px;
+}
+
+.sting-scm-feature-col {
+    margin-bottom: 20px;
+}
+
+.sting-scm-feature-card {
+    display: flex;
+    height: 100%;
+    min-height: 165px;
+    align-items: center;
+    gap: 20px;
+    padding: 24px;
+    border: 1px solid #e6e6e6;
+    border-left: 5px solid #25af7e;
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 0 5px 14px rgba(0, 0, 0, .07);
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.sting-scm-feature-card-red {
+    border-left-color: #ed2436;
+}
+
+.sting-scm-feature-icon {
+    display: flex;
+    width: 58px;
+    height: 58px;
+    flex: 0 0 58px;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(37, 175, 126, .28);
+    border-radius: 14px;
+    background: rgba(37, 175, 126, .10);
+    color: #25af7e;
+    font-size: 25px;
+}
+
+.sting-scm-feature-card-red .sting-scm-feature-icon {
+    border-color: rgba(237, 36, 54, .25);
+    background: rgba(237, 36, 54, .08);
+    color: #ed2436;
+}
+
+.sting-scm-feature-content h3 {
+    margin: 0 0 8px;
+    color: #222 !important;
+    font-size: 20px;
+    font-weight: 700;
+    text-decoration: none !important;
+}
+
+.sting-scm-feature-content p {
+    margin: 0;
+    color: #555 !important;
+    line-height: 1.5;
+    text-decoration: none !important;
+}
+
+
+/* ===== LINKED CARD KEYBOARD FOCUS ===== */
+
+.sting-page a.sting-link-card:focus-visible {
+    outline: 3px solid rgba(37, 175, 126, .35);
+    outline-offset: 3px;
+    border-radius: 8px;
+}
+
+
+/* ===== SCM GENERATED LOGIN CONTROLS ===== */
+
+.offset-sm-4.col-sm-8.d-flex.flex-wrap.gap-2 {
+    display: flex !important;
+    width: auto !important;
+    max-width: 66.66666667% !important;
+    margin-left: 33.33333333% !important;
+    padding-right: calc(var(--bs-gutter-x) * .5) !important;
+    padding-left: calc(var(--bs-gutter-x) * .5) !important;
+    flex: 0 0 auto !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 0 !important;
+}
+
+/* Login button */
+.offset-sm-4.col-sm-8.d-flex.flex-wrap.gap-2 button.btn.btn-primary[type="submit"] {
+    order: 1 !important;
+    display: inline-flex !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 9px !important;
+    margin: 1rem 0 0 !important;
+    padding: 11px 18px !important;
+    border: 2px solid #25af7e !important;
+    border-radius: 8px !important;
+    background: #fff !important;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, .12) !important;
+    color: #25af7e !important;
+    font-weight: 600 !important;
+    line-height: 1.2 !important;
+    text-decoration: none !important;
+    text-transform: uppercase !important;
+    transition:
+        background-color .2s ease,
+        color .2s ease,
+        box-shadow .2s ease,
+        transform .2s ease !important;
+}
+
+.offset-sm-4.col-sm-8.d-flex.flex-wrap.gap-2 button.btn.btn-primary[type="submit"]::before {
+    content: "";
+    font-family: "Font Awesome 7 Free";
+    font-size: 15px;
+    font-weight: 900;
+    line-height: 1;
+}
+
+.offset-sm-4.col-sm-8.d-flex.flex-wrap.gap-2 button.btn.btn-primary[type="submit"]:hover,
+.offset-sm-4.col-sm-8.d-flex.flex-wrap.gap-2 button.btn.btn-primary[type="submit"]:focus,
+.offset-sm-4.col-sm-8.d-flex.flex-wrap.gap-2 button.btn.btn-primary[type="submit"]:active {
+    background: #25af7e !important;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, .16) !important;
+    color: #fff !important;
+    transform: translateY(-1px);
+}
+
+/* Reset password text link */
+.offset-sm-4.col-sm-8.d-flex.flex-wrap.gap-2 button.btn.btn-outline-danger[data-bs-target="#forgot"] {
+    order: 2 !important;
+    display: block !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    margin: 12px 0 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    color: #25af7e !important;
+    font-size: 0 !important;
+    font-weight: 400 !important;
+    line-height: 1.4 !important;
+    text-align: left !important;
+    text-decoration: none !important;
+    text-transform: none !important;
+}
+
+.offset-sm-4.col-sm-8.d-flex.flex-wrap.gap-2 button.btn.btn-outline-danger[data-bs-target="#forgot"]::after {
+    content: "Forgot your password? Reset it here";
+    font-size: 15px !important;
+}
+
+.offset-sm-4.col-sm-8.d-flex.flex-wrap.gap-2 button.btn.btn-outline-danger[data-bs-target="#forgot"]:hover,
+.offset-sm-4.col-sm-8.d-flex.flex-wrap.gap-2 button.btn.btn-outline-danger[data-bs-target="#forgot"]:focus,
+.offset-sm-4.col-sm-8.d-flex.flex-wrap.gap-2 button.btn.btn-outline-danger[data-bs-target="#forgot"]:active {
+    color: #ed2436 !important;
+    text-decoration: underline !important;
+}
+
+
+/* ===== LOGIN ANCHOR ===== */
+
+.sting-login-anchor {
+    position: relative;
+    top: -100px;
+    visibility: hidden;
+}
+
+
+/* ===== MOBILE ===== */
+
+@media (max-width: 575.98px) {
+    .sting-scm-feature-card {
+        min-height: 0;
+        padding: 20px;
+    }
+
+    .offset-sm-4.col-sm-8.d-flex.flex-wrap.gap-2 {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin-left: 0 !important;
+        flex: 0 0 100% !important;
+    }
+}
+
+
+/* =========================================================
+   CLUB ORGANISATION PAGE-SPECIFIC COMPONENTS
+   ========================================================= */
+
+.sting-org-chart {
+    --org-green: #25af7e;
+    --org-red: #ed2436;
+    --org-white: #ffffff;
+    --org-light: #f8f8f8;
+    --org-text: #555555;
+    --org-dark: #333333;
+    --org-border: #dddddd;
+    --org-muted: #888888;
+    --org-gold: #c8860a;
+    --org-gold-bg: #fdf6e3;
+    --org-gold-border: #e6c97a;
+    --org-blue: #4047cd;
+    --org-orange: #fe4c00;
+    --org-lime: #b6e51c;
+    --org-yellow: #ffca09;
+    --org-purple: #a34aa2;
+    --org-pink: #ce3b76;
+    --org-shadow: 0 4px 10px rgba(0, 0, 0, .10);
+
+    width: 100%;
+    padding: 2rem .25rem 3rem;
+    color: var(--org-text);
+    font-size: 15px;
+    line-height: 1.55;
+}
+
+.sting-org-chart *,
+.sting-org-chart *::before,
+.sting-org-chart *::after {
+    box-sizing: border-box;
+}
+
+.sting-org-section-heading {
+    margin-bottom: .6rem;
+    color: var(--org-muted);
+    font-size: .68rem;
+    font-weight: 700;
+    letter-spacing: .14em;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.sting-org-external-row {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: .75rem;
+    margin-bottom: 2.25rem;
+}
+
+.sting-org-external-card {
+    display: flex;
+    min-height: 4.2rem;
+    align-items: center;
+    padding: .7rem .85rem;
+    border: 1px solid var(--org-gold-border);
+    border-top: 5px solid var(--org-gold);
+    border-radius: 8px;
+    background: var(--org-gold-bg);
+    box-shadow: var(--org-shadow);
+}
+
+.sting-org-external-name {
+    color: var(--org-gold);
+    font-size: .9rem;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+.sting-org-president-wrap {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+}
+
+.sting-org-president-card {
+    display: flex;
+    min-width: 180px;
+    max-width: 240px;
+    flex-direction: column;
+    justify-content: center;
+    padding: .65rem .75rem;
+    border: 1px solid var(--org-pink);
+    border-top: 5px solid var(--org-pink);
+    border-radius: 8px;
+    background: #fff7fa;
+    box-shadow: var(--org-shadow);
+    transition: background-color .15s ease;
+}
+
+.sting-org-president-card:hover {
+    background: #fdf0f6;
+}
+
+.sting-org-role-label {
+    margin-bottom: .14rem;
+    color: var(--org-pink);
+    font-size: .64rem;
+    font-weight: 700;
+    letter-spacing: .07em;
+    text-transform: uppercase;
+}
+
+.sting-org-person-name {
+    color: var(--org-pink);
+    font-size: .88rem;
+    font-weight: 700;
+    line-height: 1.25;
+}
+
+.sting-org-trustees {
+    margin-bottom: 2rem;
+    padding: 1.15rem 1.25rem 1.25rem;
+    border: 1px solid var(--org-green);
+    border-top: 5px solid var(--org-green);
+    border-radius: 8px;
+    background: var(--org-white);
+    box-shadow: var(--org-shadow);
+}
+
+.sting-org-block-title {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    margin: -1.15rem -1.25rem .95rem;
+    padding: .7rem 1.25rem;
+    border-bottom: 1px solid var(--org-border);
+    background: var(--org-light);
+    color: #1a7d58;
+    font-size: .82rem;
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+}
+
+.sting-org-block-title::before,
+.sting-org-group-label::before {
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: var(--org-green);
+    content: "";
+}
+
+.sting-org-block-title::before {
+    width: 11px;
+    height: 11px;
+}
+
+.sting-org-group-label {
+    display: flex;
+    align-items: center;
+    gap: .4rem;
+    margin-bottom: .5rem;
+    color: #1a7d58;
+    font-size: .63rem;
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+}
+
+.sting-org-group-label::before {
+    width: 8px;
+    height: 8px;
+}
+
+.sting-org-exec-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: .65rem;
+    margin-bottom: 1rem;
+}
+
+.sting-org-trustee-grid {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: .65rem;
+}
+
+.sting-org-trustee-card {
+    padding: .65rem .75rem;
+    border: 1px solid var(--org-border);
+    border-radius: 8px;
+    background: var(--org-light);
+    transition:
+        background-color .15s ease,
+        border-color .15s ease,
+        transform .15s ease;
+}
+
+.sting-org-trustee-card:hover {
+    border-color: var(--org-green);
+    background: #e8f5ef;
+    transform: translateY(-1px);
+}
+
+.sting-org-trustee-role {
+    margin-bottom: .14rem;
+    color: var(--org-muted);
+    font-size: .64rem;
+    font-weight: 700;
+    letter-spacing: .07em;
+    text-transform: uppercase;
+}
+
+
+.sting-org-vacant {
+    color: var(--org-red) !important;
+    font-style: italic;
+}
+
+.sting-org-trustee-name {
+    color: var(--org-dark);
+    font-size: .88rem;
+    font-weight: 700;
+    line-height: 1.25;
+}
+
+.sting-org-units {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.sting-org-unit-col {
+    display: flex;
+}
+
+.sting-org-unit-card {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border: 1px solid var(--org-border);
+    border-radius: 8px;
+    background: var(--org-white);
+    box-shadow: var(--org-shadow);
+}
+
+.sting-org-unit-header {
+    display: flex;
+    align-items: center;
+    gap: .55rem;
+    padding: .7rem .9rem;
+    border-bottom: 1px solid var(--org-border);
+    background: var(--org-light);
+}
+
+.sting-org-unit-dot {
+    width: 10px;
+    height: 10px;
+    flex-shrink: 0;
+    border-radius: 50%;
+}
+
+.sting-org-unit-header h3 {
+    margin: 0;
+    font-size: .84rem;
+    font-weight: 700;
+    letter-spacing: .07em;
+    line-height: 1.2;
+    text-transform: uppercase;
+}
+
+.sting-org-reports-label {
+    margin-top: .08rem;
+    color: var(--org-muted);
+    font-size: .62rem;
+    line-height: 1.25;
+}
+
+.sting-org-unit-body {
+    padding: .45rem .65rem;
+}
+
+.sting-org-role-row {
+    display: flex;
+    align-items: flex-start;
+    gap: .45rem;
+    padding: .38rem .2rem;
+    border-bottom: 1px solid #f1f1f1;
+    transition: background-color .1s ease;
+}
+
+.sting-org-role-row:last-child {
+    border-bottom: 0;
+}
+
+.sting-org-role-row:hover {
+    background: var(--org-light);
+}
+
+.sting-org-role-bullet {
+    width: 5px;
+    height: 5px;
+    flex-shrink: 0;
+    margin-top: 5px;
+    border-radius: 50%;
+}
+
+.sting-org-role-info {
+    min-width: 0;
+    flex: 1;
+}
+
+.sting-org-role-title {
+    color: var(--org-dark);
+    font-size: .78rem;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+.sting-org-role-person {
+    margin-top: .05rem;
+    color: var(--org-muted);
+    font-size: .7rem;
+    line-height: 1.25;
+}
+
+.sting-org-role-person.vacant {
+    color: var(--org-red);
+    font-style: italic;
+}
+
+.sting-org-role-report {
+    display: inline-block;
+    margin-top: .14rem;
+    padding: .05rem .34rem;
+    border: 1px solid;
+    border-radius: 4px;
+    font-size: .6rem;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.sting-org-unit--squads {
+    border-color: var(--org-blue);
+    border-top: 5px solid var(--org-blue);
+}
+
+.sting-org-unit--squads .sting-org-unit-dot,
+.sting-org-unit--squads .sting-org-role-bullet {
+    background: var(--org-blue);
+}
+
+.sting-org-unit--squads .sting-org-unit-header h3 {
+    color: var(--org-blue);
+}
+
+.sting-org-unit--squads .sting-org-role-report {
+    border-color: var(--org-blue);
+    background: #e8eafc;
+    color: var(--org-blue);
+}
+
+.sting-org-unit--swimschool {
+    border-color: var(--org-orange);
+    border-top: 5px solid var(--org-orange);
+}
+
+.sting-org-unit--swimschool .sting-org-unit-dot,
+.sting-org-unit--swimschool .sting-org-role-bullet {
+    background: var(--org-orange);
+}
+
+.sting-org-unit--swimschool .sting-org-unit-header h3 {
+    color: var(--org-orange);
+}
+
+.sting-org-unit--swimschool .sting-org-role-report {
+    border-color: var(--org-orange);
+    background: #fde8e2;
+    color: var(--org-orange);
+}
+
+.sting-org-unit--volunteers {
+    border-color: var(--org-lime);
+    border-top: 5px solid var(--org-lime);
+}
+
+.sting-org-unit--volunteers .sting-org-unit-dot,
+.sting-org-unit--volunteers .sting-org-role-bullet {
+    background: var(--org-lime);
+}
+
+.sting-org-unit--volunteers .sting-org-unit-header h3,
+.sting-org-unit--volunteers .sting-org-role-report {
+    color: #7a9a10;
+}
+
+.sting-org-unit--volunteers .sting-org-role-report {
+    border-color: var(--org-lime);
+    background: #f2fad0;
+}
+
+.sting-org-unit--events {
+    border-color: var(--org-yellow);
+    border-top: 5px solid var(--org-yellow);
+}
+
+.sting-org-unit--events .sting-org-unit-dot,
+.sting-org-unit--events .sting-org-role-bullet {
+    background: var(--org-yellow);
+}
+
+.sting-org-unit--events .sting-org-unit-header h3,
+.sting-org-unit--events .sting-org-role-report {
+    color: #b8940a;
+}
+
+.sting-org-unit--events .sting-org-role-report {
+    border-color: var(--org-yellow);
+    background: #fff8d6;
+}
+
+.sting-org-unit--officials {
+    border-color: var(--org-purple);
+    border-top: 5px solid var(--org-purple);
+}
+
+.sting-org-unit--officials .sting-org-unit-dot,
+.sting-org-unit--officials .sting-org-role-bullet {
+    background: var(--org-purple);
+}
+
+.sting-org-unit--officials .sting-org-unit-header h3,
+.sting-org-unit--officials .sting-org-role-report {
+    color: var(--org-purple);
+}
+
+.sting-org-unit--officials .sting-org-role-report {
+    border-color: var(--org-purple);
+    background: #f5e8f5;
+}
+
+.sting-org-legend {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.2rem 1.4rem;
+    margin-top: 2.2rem;
+    padding-top: 1.15rem;
+    border-top: 1px solid var(--org-border);
+}
+
+.sting-org-legend-item {
+    display: flex;
+    align-items: center;
+    gap: .4rem;
+    color: var(--org-muted);
+    font-size: .76rem;
+}
+
+.sting-org-legend-swatch {
+    width: 10px;
+    height: 10px;
+    flex-shrink: 0;
+    border-radius: 50%;
+}
+
+@media (max-width: 1200px) {
+    .sting-org-trustee-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .sting-org-units {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 900px) {
+
+    .sting-org-external-row,
+    .sting-org-exec-grid,
+    .sting-org-units {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 640px) {
+    .sting-org-chart {
+        padding: 1.25rem 0 2rem;
+    }
+
+    .sting-org-external-row,
+    .sting-org-exec-grid,
+    .sting-org-trustee-grid,
+    .sting-org-units {
+        grid-template-columns: 1fr;
+    }
+
+    .sting-org-president-card {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .sting-org-trustees {
+        padding: 1rem;
+    }
+
+    .sting-org-block-title {
+        margin: -1rem -1rem .9rem;
+        padding: .7rem 1rem;
+    }
+
+    .sting-org-legend {
+        justify-content: flex-start;
+    }
+}
+
+
+
+/* v3.0.5 accountable role highlight */
+.sting-org-accountable {
+    margin-bottom: 8px;
+    padding: 10px;
+    border: 1px solid #d9d9d9;
+    border-radius: 8px;
+    background: #f5f5f5;
+}
+
+.sting-org-accountable .sting-org-role-title {
+    color: #25af7e;
+}
+
+/* =========================================================
+   FOOTER
+   Added v3.1.0
+   Current component basis: Footer Component v1.5.0
+   ========================================================= */
+
+/* =========================================================
+   SCM FOOTER OVERRIDES
+   Makes the SCM footer itself dark, removes its default
+   vertical padding, and hides the SCM credit safely.
+   ========================================================= */
+
+.site-footer {
+    background: linear-gradient(180deg,
+            #353535 0%,
+            #2c2c2c 100%);
+    padding: 0;
+}
+
+.site-footer small,
+.site-footer .small {
+    display: none;
+}
+
+
+/* =========================================================
+   STINGRAYS FOOTER
+   Full-width breakout from the SCM/Bootstrap container.
+   ========================================================= */
+
+.sting-footer-container {
+    width: 90%;
+    max-width: 1800px;
+    margin: 0 auto;
+    padding-left: 12px;
+    padding-right: 12px;
+}
+
+.sting-footer-grid {
+    display: grid;
+    grid-template-columns: repeat(4, max-content);
+    justify-content: space-between;
+    gap: 32px;
+    width: 100%;
+}
+
+.sting-footer {
+    position: relative;
+    left: 50%;
+    width: 100vw;
+    max-width: none;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    padding: 58px 0 28px;
+    background: transparent;
+    color: #d6d6d6;
+    overflow-x: clip;
+}
+
+
+/* =========================================================
+   FOOTER HEADINGS
+   ========================================================= */
+
+.sting-footer h2 {
+    margin: 0 0 18px;
+    color: #25af7e;
+    font-size: 18px;
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: .6px;
+    text-transform: uppercase;
+}
+
+
+/* =========================================================
+   FOOTER NAVIGATION
+   ========================================================= */
+
+.sting-footer ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.sting-footer li {
+    margin-bottom: 9px;
+}
+
+.sting-footer a {
+    color: rgba(255, 255, 255, .9);
+    text-decoration: none;
+}
+
+.sting-footer-nav a {
+    display: inline-block;
+    font-weight: 500;
+    transition:
+        color .2s ease,
+        transform .2s ease;
+}
+
+.sting-footer-nav a:hover,
+.sting-footer-nav a:focus {
+    color: #25af7e;
+    text-decoration: none;
+    transform: translateX(3px);
+}
+
+
+/* =========================================================
+   FOOTER LOGO
+   ========================================================= */
+
+.sting-footer-brand {
+    display: block;
+    width: 170px;
+    margin: 0 0 14px;
+}
+
+.sting-footer-logo {
+    position: relative;
+    width: 170px;
+    height: 59px;
+
+    background-image:
+        url("https://blob.swimclubmanager.co.uk/files-28651/5140D83F-D738-4892-A460-8E4C15E51F26.png");
+
+    background-repeat: no-repeat;
+    background-position: left top;
+    background-size: contain;
+
+    transform-origin: left center;
+
+    transition: transform .22s ease;
+}
+
+.sting-footer-logo::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background-image:
+        url("https://blob.swimclubmanager.co.uk/files-28651/6E0D7A72-64A2-44B7-A200-F789E3DE4A26.png");
+
+    background-repeat: no-repeat;
+    background-position: left top;
+    background-size: contain;
+
+    opacity: 0;
+    transition: opacity .22s ease;
+}
+
+.sting-footer-brand:hover .sting-footer-logo,
+.sting-footer-brand:focus .sting-footer-logo {
+    transform: scale(1.04);
+}
+
+.sting-footer-brand:hover .sting-footer-logo::after,
+.sting-footer-brand:focus .sting-footer-logo::after {
+    opacity: 1;
+}
+
+
+/* =========================================================
+   FOOTER ADDRESS
+   ========================================================= */
+
+.sting-footer-address {
+    margin: 0 0 18px;
+    padding: 0;
+    color: #d6d6d6;
+    font-style: normal;
+    line-height: 1.55;
+}
+
+
+/* =========================================================
+   CONTACT + SOCIAL ICONS
+   ========================================================= */
+
+.sting-footer-social {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.sting-footer-social a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 40px;
+    height: 40px;
+
+    border: 2px solid rgba(255, 255, 255, .45);
+    border-radius: 8px;
+
+    color: #fff;
+    font-size: 15px;
+
+    transition:
+        background-color .2s ease,
+        border-color .2s ease,
+        color .2s ease,
+        transform .2s ease;
+}
+
+.sting-footer-social a:hover,
+.sting-footer-social a:focus {
+    border-color: #25af7e;
+    background-color: #25af7e;
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   FOOTER DIVIDER
+   ========================================================= */
+
+.sting-footer-divider {
+    margin: 42px 0 20px;
+    border: 0;
+    border-top: 2px solid rgba(37, 175, 126, .38);
+    opacity: 1;
+}
+
+
+/* =========================================================
+   FOOTER BOTTOM
+   ========================================================= */
+
+.sting-footer-bottom {
+    color: #fff;
+    line-height: 1.5;
+    text-align: center;
+    opacity: .9;
+}
+
+.sting-footer-bottom p {
+    margin: 0 0 5px;
+    font-size: .9rem;
+}
+
+.sting-footer-bottom p:last-child {
+    margin-bottom: 0;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 767.98px) {
+
+    .sting-footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+        justify-content: normal;
+        gap: 32px 24px;
+    }
+
+    .sting-footer {
+        padding: 42px 0 24px;
+    }
+
+    .sting-footer h2 {
+        margin-bottom: 14px;
+    }
+
+    .sting-footer-divider {
+        margin-top: 32px;
+    }
+
+}
+
+@media (max-width: 575.98px) {
+
+    .sting-footer-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .sting-footer-brand,
+    .sting-footer-logo {
+        width: 150px;
+    }
+
+    .sting-footer-logo {
+        height: 52px;
+    }
+
+}
+
+
+/* =========================================================
+   EVENT PAGE COMPONENTS
+   Used by Summer Open Meet and Club Championships pages
+   ========================================================= */
+
+
+/* ===== INTRODUCTION ===== */
+
+/*
+Compatibility with existing Club Champs HTML.
+New event pages should preferably use .sting-event-intro.
+*/
+
+.sting-event-intro,
+.sting-champs-intro {
+    margin-bottom: 25px;
+}
+
+.sting-event-intro .lead,
+.sting-champs-intro .lead {
+    margin-bottom: 15px;
+    line-height: 1.55;
+}
+
+.sting-event-intro p,
+.sting-champs-intro p {
+    line-height: 1.6;
+}
+
+
+/* ===== EVENT PANEL ===== */
+
+.sting-event-panel {
+    margin-bottom: 30px;
+    padding: 28px;
+    border: 1px solid #e6e6e6;
+    border-top: 5px solid #25af7e;
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, .08);
+}
+
+.sting-event-panel h2 {
+    margin-top: 0;
+    margin-bottom: 14px;
+    color: #25af7e;
+    font-weight: 700;
+}
+
+.sting-event-panel p {
+    margin-bottom: 12px;
+    line-height: 1.6;
+}
+
+.sting-event-panel p:last-child {
+    margin-bottom: 0;
+}
+
+.sting-event-panel i {
+    margin-right: 8px;
+    color: #25af7e;
+}
+
+
+/* ===== VENUE ===== */
+
+.sting-venue-row {
+    margin-bottom: 30px;
+}
+
+.sting-map-frame {
+    overflow: hidden;
+    border: 1px solid #d9d9d9;
+    border-top: 5px solid #25af7e;
+    border-radius: 8px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, .08);
+}
+
+.sting-map-frame iframe {
+    display: block;
+    width: 100%;
+    height: 340px;
+    border: 0;
+}
+
+.sting-venue-panel {
+    min-height: 345px;
+    padding: 30px;
+    border: 1px solid #e6e6e6;
+    border-left: 5px solid #25af7e;
+    border-radius: 8px;
+    background: #fafafa;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.sting-venue-panel > i {
+    margin-bottom: 16px;
+    color: #25af7e;
+    font-size: 38px;
+}
+
+.sting-venue-panel h2 {
+    margin-top: 0;
+    margin-bottom: 14px;
+    color: #25af7e;
+    font-weight: 700;
+}
+
+.sting-venue-panel h2 i {
+    color: #25af7e;
+}
+
+.sting-venue-address {
+    margin-bottom: 0;
+    font-size: 17px;
+    line-height: 1.65;
+}
+
+
+/* ===== INFORMATION PANEL ===== */
+
+.sting-info-panel,
+.sting-info-panel.sting-info-panel-red {
+    margin-bottom: 30px;
+    padding: 25px;
+    border: 1px solid #e6e6e6;
+    border-top: 5px solid #25af7e;
+    border-radius: 8px;
+    background: #fafafa;
+}
+
+.sting-info-panel h2,
+.sting-info-panel.sting-info-panel-red h2 {
+    margin-top: 0;
+    margin-bottom: 14px;
+    color: #25af7e;
+    font-weight: 700;
+}
+
+.sting-info-panel h2 i,
+.sting-info-panel.sting-info-panel-red h2 i,
+.sting-info-panel i,
+.sting-info-panel.sting-info-panel-red i {
+    margin-right: 8px;
+    color: #25af7e;
+}
+
+.sting-info-panel p {
+    margin-bottom: 0;
+    line-height: 1.6;
+}
+
+.sting-info-panel .sting-check-list li::before {
+    color: #25af7e;
+}
+
+
+/* ===== AGE GROUPS AND AWARDS ===== */
+
+.sting-awards-panel {
+    margin-bottom: 30px;
+    padding: 28px;
+    border: 1px solid #e6e6e6;
+    border-left: 5px solid #25af7e;
+    border-radius: 8px;
+    background: #fafafa;
+}
+
+.sting-awards-panel h2 {
+    margin-top: 0;
+    margin-bottom: 16px;
+    color: #25af7e;
+    font-weight: 700;
+}
+
+.sting-awards-panel h2 i,
+.sting-awards-panel i {
+    margin-right: 8px;
+    color: #25af7e;
+}
+
+.sting-awards-panel .sting-check-list li::before {
+    color: #25af7e;
+}
+
+
+/* ===== RESULTS ===== */
+
+.sting-results-panel {
+    margin-bottom: 35px;
+    padding: 28px;
+    border: 1px solid #e6e6e6;
+    border-top: 5px solid #25af7e;
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, .08);
+    text-align: center;
+}
+
+.sting-results-icon {
+    display: flex;
+    width: 76px;
+    height: 76px;
+    margin: 0 auto 18px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #25af7e;
+    color: #fff;
+}
+
+.sting-results-icon i {
+    margin: 0;
+    color: #fff;
+    font-size: 34px;
+}
+
+.sting-results-panel h2 {
+    margin-top: 0;
+    margin-bottom: 12px;
+    color: #25af7e;
+    font-weight: 700;
+}
+
+.sting-results-panel p {
+    max-width: 720px;
+    margin-right: auto;
+    margin-bottom: 14px;
+    margin-left: auto;
+    line-height: 1.6;
+}
+
+.sting-results-button {
+    margin-top: 10px;
+}
+
+
+/* ===== MOBILE ===== */
+
+@media (max-width: 767.98px) {
+
+    .sting-event-panel,
+    .sting-info-panel,
+    .sting-awards-panel,
+    .sting-results-panel,
+    .sting-venue-panel {
+        padding: 20px;
+    }
+
+    .sting-map-frame {
+        margin-bottom: 20px;
+    }
+
+    .sting-map-frame iframe {
+        height: 300px;
+    }
+
+    .sting-venue-panel {
+        min-height: 0;
+    }
+}
+
+
+/* =========================================================
+   HOME PAGE — TABLET RESPONSIVE HERO
+   ========================================================= */
+
+@media (min-width: 768px) and (max-width: 1199.98px) {
+
+    .sting-home-hero {
+align-items: flex-start;
+    }
+
+    .sting-home-hero-copy {
+display: flex;
+flex-direction: column;
+padding-top: 0;
+padding-bottom: 0;
+    }
+
+    .sting-home-hero-title {
+margin-bottom: 8px;
+font-size: 34px;
+line-height: 1.08;
+    }
+
+    .sting-home-hero-copy .h3 {
+margin-bottom: 18px;
+font-size: 1.3rem !important;
+font-weight: 600 !important;
+line-height: 1.25;
+white-space: nowrap;
+    }
+
+    .sting-home-hero-copy .lead {
+margin-bottom: 20px;
+line-height: 1.55;
+    }
+
+    .sting-home-hero-copy .sting-contact {
+margin-top: 0;
+margin-bottom: 0;
+    }
+
+    .sting-home-hero-image {
+height: auto;
+object-fit: cover;
+    }
+}
+
+/* =========================================================
+   SCM TABLET / MOBILE CONTENT WIDTH
+   Added v3.5.6
+
+   On viewports below Bootstrap's large breakpoint:
+   • Removes the SCM desktop-style boxed content restriction
+   • Allows the main SCM content area to use the full
+     available viewport width
+   • Keeps Stingrays page content at 95% width to provide
+     comfortable spacing from the screen edges
+   • Removes the main content border, radius and shadow so
+     the page no longer appears as a box on smaller screens
+   • Leaves the desktop layout unchanged apart from removal
+     of the unnecessary 1px main-content border
+
+   Note:
+   iPhone Safari may retain safe-area margins at the sides
+   of the screen in landscape orientation. This is normal
+   browser behaviour and is intentionally not overridden.
+   ========================================================= */
+
+
+/* Remove unnecessary border from main content on all screens */
+#main_content.modern-content {
+    border: 0;
+}
+
+
+@media (max-width: 991.98px) {
+
+    /* Remove the SCM container's desktop width restriction */
+    .site-main > .container {
+width: 100% !important;
+max-width: none !important;
+margin-left: 0 !important;
+margin-right: 0 !important;
+padding-left: 0 !important;
+padding-right: 0 !important;
+    }
+
+    /* Allow the SCM main-content wrapper to use full width
+       and remove its desktop box treatment */
+    #main_content.modern-content {
+width: 100% !important;
+max-width: none !important;
+margin-left: 0 !important;
+margin-right: 0 !important;
+border-radius: 0 !important;
+box-shadow: none !important;
+    }
+
+    /* Keep Stingrays content slightly inset from screen edges */
+    .sting-page {
+width: 95% !important;
+max-width: none !important;
+margin-left: auto !important;
+margin-right: auto !important;
+    }
+}
+
+/* =========================================================
+   HOME PAGE — MOBILE PORTRAIT
+   ========================================================= */
+
+@media (max-width: 575.98px) {
+
+    .sting-home-hero-title {
+font-size: 28px;
+    }
+
+    .sting-home-hero-copy .h3 {
+color: #ed2436 !important;
+font-size: 1.3rem !important;
+font-weight: 600 !important;
+padding-top: 12px;
+    }
+
+    .lead {
+font-size: 1.1rem;
+font-weight: 300;
+    }
+}
+
+/* =========================================================
+   HOME PAGE — MOBILE LANDSCAPE CARD GRID
+   ========================================================= */
+
+@media (orientation: landscape) and (min-width: 576px) and (max-width: 767.98px) {
+
+    .sting-home-card-col {
+width: 50% !important;
+flex: 0 0 50% !important;
+    }
+}
+
+/* =========================================================
+   TEMPORARY NOTICE
+   ========================================================= */
+
+.sting-temporary-notice {
+    margin: 30px 0;
+    padding: 20px 24px;
+    border: 1px solid #f0d37a;
+    border-left: 6px solid #f0c040;
+    border-radius: 8px;
+    background: #fff8e5;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, .05);
+}
+
+.sting-temporary-notice h2 {
+    margin-top: 0;
+    margin-bottom: 12px;
+    color: #8a6d00;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.sting-temporary-notice h2 i {
+    margin-right: 8px;
+    color: #8a6d00;
+}
+
+.sting-temporary-notice p {
+    line-height: 1.6;
+}
+
+.sting-temporary-notice p:last-child {
+    margin-bottom: 0;
+}
+
+@media (max-width: 767.98px) {
+    .sting-temporary-notice {
+        padding: 18px;
+    }
+}
+
+<style>
+/* =========================================================
+   SCM CONTACT FORM
+   ========================================================= */
+
+#contactForm {
+    width: 100%;
+    max-width: 100%;
+}
+
+
+/* =========================================================
+   MAIN CONTACT FORM CARD
+   ========================================================= */
+
+#contactForm fieldset.form-border:first-of-type {
+    position: relative;
+    margin: 0 0 18px !important;
+    padding: 60px 24px 24px !important;
+    border: 1px solid #e5e5e5 !important;
+    border-top: 4px solid #25af7e !important;
+    border-radius: 8px !important;
+    background: #fff !important;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, .06) !important;
+}
+
+
+/* =========================================================
+   "ALL FIELDS REQUIRED" INSTRUCTION
+   ========================================================= */
+
+/* Hide SCM's original legend */
+#contactForm fieldset.form-border:first-of-type legend.form-border {
+    display: none !important;
+}
+
+/* Recreate as instructional text inside the form */
+#contactForm fieldset.form-border:first-of-type::before {
+    content: "All Fields Required";
+    position: absolute;
+    top: 21px;
+    left: 28px;
+    color: #6c757d;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.4;
+}
+
+/* =========================================================
+   FORM LAYOUT
+   ========================================================= */
+
+/*
+Visually hide SCM labels but retain them in the HTML
+for accessibility.
+*/
+#contactForm .col-form-label {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+
+    padding: 0 !important;
+    margin: -1px !important;
+
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+
+    border: 0 !important;
+}
+
+
+/* Remove Bootstrap row gutters */
+#contactForm .form-group.row {
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+}
+
+
+/* Make every input container full width */
+#contactForm .form-group > .col-sm-8,
+#contactForm .form-group > .selectContainer {
+    flex: 0 0 100% !important;
+    width: 100% !important;
+    max-width: 100% !important;
+
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+}
+
+
+/* Form row spacing */
+#contactForm .form-group {
+    margin-bottom: 16px !important;
+}
+
+
+/* Remove unnecessary space after final query field */
+#contactForm fieldset.form-border:first-of-type .form-group:last-child {
+    margin-bottom: 0 !important;
+}
+
+
+/* =========================================================
+   FORM CONTROLS
+   ========================================================= */
+
+#contactForm .form-control,
+#contactForm .form-select {
+    width: 100% !important;
+    min-height: 46px !important;
+
+    padding: 10px 14px !important;
+
+    border: 1px solid #d7dce1 !important;
+    border-radius: 8px !important;
+
+    background-color: #fff !important;
+    box-shadow: none !important;
+
+    font-size: 16px !important;
+
+    transition:
+        border-color .2s ease,
+        box-shadow .2s ease;
+}
+
+
+/* Textarea */
+#contactForm textarea.form-control {
+    min-height: 150px !important;
+    resize: vertical;
+}
+
+
+/* Focus state */
+#contactForm .form-control:focus,
+#contactForm .form-select:focus {
+    border-color: #25af7e !important;
+    box-shadow: 0 0 0 3px rgba(37, 175, 126, .15) !important;
+    outline: 0 !important;
+}
+
+
+/* =========================================================
+   VALIDATION MESSAGES
+   ========================================================= */
+
+#contactForm .help-block {
+    margin-top: 6px;
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   CAPTCHA / SUBMIT AREA
+
+   SCM generates these inside a second fieldset.
+   Remove the visible fieldset completely.
+   ========================================================= */
+
+#contactForm fieldset.form-border:nth-of-type(2) {
+    margin: 0 !important;
+    padding: 0 24px !important;
+
+    border: 0 !important;
+    border-radius: 0 !important;
+
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+
+/* Hide SCM "Are You Human?" legend */
+#contactForm fieldset.form-border:nth-of-type(2) legend.form-border {
+    display: none !important;
+}
+
+
+/* Remove SCM Bootstrap offsets */
+#contactForm fieldset.form-border:nth-of-type(2) .offset-md-4,
+#contactForm fieldset.form-border:nth-of-type(2) .offset-sm-4 {
+    margin-left: 0 !important;
+}
+
+
+/* Make CAPTCHA / button rows full width */
+#contactForm fieldset.form-border:nth-of-type(2) .col-md-8,
+#contactForm fieldset.form-border:nth-of-type(2) .col-sm-8 {
+    flex: 0 0 100% !important;
+    width: 100% !important;
+    max-width: 100% !important;
+
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+}
+
+
+/* CAPTCHA spacing */
+#contactForm .g-recaptcha {
+    margin: 0 0 14px !important;
+}
+
+/* =========================================================
+   SEND BUTTON
+   ========================================================= */
+
+#contactForm .btn-primary {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 10px !important;
+
+    min-width: 150px !important;
+    padding: 12px 24px !important;
+
+    border: 2px solid #ed2436 !important;
+    border-radius: 8px !important;
+
+    background: #ed2436 !important;
+    color: #fff !important;
+
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    line-height: 1.2 !important;
+    text-decoration: none !important;
+
+    cursor: pointer;
+
+    transition:
+        background-color .2s ease,
+        color .2s ease,
+        transform .2s ease;
+}
+
+/* Send icon */
+#contactForm .btn-primary::before {
+    content: "\f1d8";
+    font-family: "Font Awesome 7 Free";
+    font-weight: 900;
+    font-size: 15px;
+}
+
+#contactForm .btn-primary:hover,
+#contactForm .btn-primary:focus {
+    background: #fff !important;
+    color: #ed2436 !important;
+    border-color: #ed2436 !important;
+    transform: translateY(-2px);
+}
+
+#contactForm .btn-primary:focus-visible {
+    outline: 3px solid rgba(237, 36, 54, .25) !important;
+    outline-offset: 2px;
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 575.98px) {
+
+    #contactForm fieldset.form-border:first-of-type {
+        padding: 60px 18px 18px !important;
+    }
+
+    #contactForm fieldset.form-border:first-of-type::before {
+        left: 22px;
+    }
+
+    #contactForm fieldset.form-border:nth-of-type(2) {
+        padding: 0 18px !important;
+    }
+}
+
+</style>
+
+/*
+=========================================================
+END OF SALISBURY STINGRAYS MASTER STYLESHEET v3.6.0
+Updated 11 August 2026
+=========================================================
+*/
