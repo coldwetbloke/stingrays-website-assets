@@ -4454,17 +4454,18 @@ for accessibility.
 /* =========================================================
    SEND BUTTON
 
-   Matches the standard .sting-btn styling, but reversed:
-   solid green normally, outline green on hover/focus.
+   Matches the standard .sting-btn dimensions and styling,
+   but reversed: solid green normally, outline on hover.
    ========================================================= */
 
-#contactForm .btn-primary {
+#contactForm button.btn.btn-primary {
     display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
     gap: 8px !important;
 
-    padding: 10px 20px !important;
+    height: 54px !important;
+    padding: 0 20px !important;
 
     border: 2px solid #25af7e !important;
     border-radius: 8px !important;
@@ -4473,7 +4474,6 @@ for accessibility.
     color: #fff !important;
 
     font-weight: 600 !important;
-    line-height: 32px !important;
     text-decoration: none !important;
 
     cursor: pointer;
@@ -4488,7 +4488,7 @@ for accessibility.
 
 
 /* Send icon */
-#contactForm .btn-primary::before {
+#contactForm button.btn.btn-primary::before {
     content: "\f1d8";
     font-family: "Font Awesome 7 Free";
     font-weight: 900;
@@ -4500,8 +4500,8 @@ for accessibility.
 
 
 /* Reverse to outline on hover/focus */
-#contactForm .btn-primary:hover,
-#contactForm .btn-primary:focus {
+#contactForm button.btn.btn-primary:hover,
+#contactForm button.btn.btn-primary:focus {
     border-color: #25af7e !important;
     background: #fff !important;
     color: #25af7e !important;
@@ -4512,19 +4512,18 @@ for accessibility.
 }
 
 
-/* Change Send icon to green on hover/focus */
-#contactForm .btn-primary:hover::before,
-#contactForm .btn-primary:focus::before {
+/* Change icon to green on hover/focus */
+#contactForm button.btn.btn-primary:hover::before,
+#contactForm button.btn.btn-primary:focus::before {
     color: #25af7e !important;
 }
 
 
 /* Keyboard focus */
-#contactForm .btn-primary:focus-visible {
+#contactForm button.btn.btn-primary:focus-visible {
     outline: 3px solid rgba(37, 175, 126, .35) !important;
     outline-offset: 3px;
 }
-
 /* =========================================================
    MOBILE
    ========================================================= */
