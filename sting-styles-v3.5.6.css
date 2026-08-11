@@ -4170,6 +4170,29 @@ New event pages should preferably use .sting-event-intro.
     }
 }
 
+/* =========================================================
+   HOME PAGE — MOBILE PORTRAIT
+   ========================================================= */
+
+@media (max-width: 575.98px) {
+
+    .sting-home-hero-title {
+        font-size: 28px;
+    }
+
+    .sting-home-hero-copy .h3 {
+        color: #ed2436 !important;
+        font-size: 1.3rem !important;
+        font-weight: 600 !important;
+        padding-top: 12px;
+    }
+
+    .lead {
+        font-size: 1.1rem;
+        font-weight: 300;
+    }
+}
+
 /*
 =========================================================
 END OF SALISBURY STINGRAYS MASTER STYLESHEET v3.5.6
