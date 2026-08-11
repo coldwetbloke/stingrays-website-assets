@@ -4464,10 +4464,10 @@ for accessibility.
     min-width: 150px !important;
     padding: 12px 24px !important;
 
-    border: 2px solid #25af7e !important;
+    border: 2px solid #ed2436 !important;
     border-radius: 8px !important;
 
-    background: #25af7e !important;
+    background: #ed2436 !important;
     color: #fff !important;
 
     font-size: 16px !important;
@@ -4494,8 +4494,8 @@ for accessibility.
 #contactForm .btn-primary:hover,
 #contactForm .btn-primary:focus {
     background: #fff !important;
-    color: #25af7e !important;
-    border-color: #25af7e !important;
+    color: #ed2436 !important;
+    border-color: #ed2436 !important;
     transform: translateY(-2px);
 }
 
