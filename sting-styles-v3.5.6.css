@@ -2620,6 +2620,7 @@ navigation or other website components.
             position: relative;
             width: 100%;
             aspect-ratio: 3 / 2;
+            flex: 0 0 auto;
             overflow: hidden;
         }
 
