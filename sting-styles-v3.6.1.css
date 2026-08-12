@@ -291,6 +291,24 @@ navigation or other website components.
     outline-offset: 3px;
 }
 
+@media (max-width: 575.98px) {
+
+    .sting-event-signup .sting-btn,
+    .sting-results-button .sting-btn {
+        display: flex;
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+        white-space: normal;
+        text-align: center;
+        justify-content: center;
+        line-height: 1.4;
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+}
+
 /* ===== SHARED DECORATIVE COMPONENTS ===== */
 
 .sting-wave-divider {
