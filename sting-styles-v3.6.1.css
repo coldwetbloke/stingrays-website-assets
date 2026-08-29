@@ -2966,6 +2966,74 @@ navigation or other website components.
 }
 
 
+/*
+ * Salisbury Stingrays SCM login page
+ * Makes the forgotten-password submit button match the login button.
+ *
+ * Load this after sting-styles-v3.6.1.css.
+ */
+
+#forgot button[type="submit"] {
+    display: inline-flex !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 9px !important;
+    margin: 1rem 0 0 !important;
+    padding: 11px 18px !important;
+    border: 2px solid #25af7e !important;
+    border-radius: 8px !important;
+    background: #fff !important;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, .12) !important;
+    color: #25af7e !important;
+    font-weight: 600 !important;
+    line-height: 1.2 !important;
+    text-decoration: none !important;
+    text-transform: uppercase !important;
+    opacity: 1 !important;
+    transition:
+        background-color .2s ease,
+        color .2s ease,
+        box-shadow .2s ease,
+        transform .2s ease !important;
+}
+
+#forgot button[type="submit"]::before {
+    content: "\f1d8";
+    font-family: "Font Awesome 7 Free";
+    font-size: 15px;
+    font-weight: 900;
+    line-height: 1;
+}
+
+#forgot button[type="submit"]:hover,
+#forgot button[type="submit"]:focus,
+#forgot button[type="submit"]:active {
+    border-color: #25af7e !important;
+    background: #25af7e !important;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, .16) !important;
+    color: #fff !important;
+    transform: translateY(-1px);
+}
+
+#forgot button[type="submit"]:focus-visible {
+    outline: 3px solid rgba(37, 175, 126, .35);
+    outline-offset: 3px;
+}
+
+/* Keep an unavailable reset action visibly branded, but clearly inactive. */
+#forgot button[type="submit"]:disabled,
+#forgot button[type="submit"].disabled {
+    border-color: rgba(37, 175, 126, .65) !important;
+    background: #fff !important;
+    box-shadow: none !important;
+    color: rgba(29, 140, 101, .75) !important;
+    cursor: not-allowed !important;
+    opacity: 1 !important;
+    transform: none !important;
+}
+
 /* ===== LOGIN ANCHOR ===== */
 
 .sting-login-anchor {
