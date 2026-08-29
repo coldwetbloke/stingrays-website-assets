@@ -3037,7 +3037,17 @@ navigation or other website components.
     transform: none !important;
 }
 
-
+/* Final shared login and reset button dimensions */
+.offset-sm-4.col-sm-8.d-flex.flex-wrap.gap-2 button.btn.btn-primary[type="submit"],
+#forgot button.btn {
+    box-sizing: border-box !important;
+    width: 240px !important;
+    max-width: 100% !important;
+    height: 44px !important;
+    min-height: 44px !important;
+    padding: 0 18px !important;
+    line-height: 1 !important;
+}
 
 /* ===== LOGIN ANCHOR ===== */
 
@@ -4163,43 +4173,43 @@ New event pages should preferably use .sting-event-intro.
 @media (min-width: 768px) and (max-width: 1199.98px) {
 
     .sting-home-hero {
-align-items: flex-start;
+        align-items: flex-start;
     }
 
     .sting-home-hero-copy {
-display: flex;
-flex-direction: column;
-padding-top: 0;
-padding-bottom: 0;
+        display: flex;
+        flex-direction: column;
+        padding-top: 0;
+        padding-bottom: 0;
     }
 
     .sting-home-hero-title {
-margin-bottom: 8px;
-font-size: 34px;
-line-height: 1.08;
+        margin-bottom: 8px;
+        font-size: 34px;
+        line-height: 1.08;
     }
 
     .sting-home-hero-copy .h3 {
-margin-bottom: 18px;
-font-size: 1.3rem !important;
-font-weight: 600 !important;
-line-height: 1.25;
-white-space: nowrap;
+        margin-bottom: 18px;
+        font-size: 1.3rem !important;
+        font-weight: 600 !important;
+        line-height: 1.25;
+        white-space: nowrap;
     }
 
     .sting-home-hero-copy .lead {
-margin-bottom: 20px;
-line-height: 1.55;
+        margin-bottom: 20px;
+        line-height: 1.55;
     }
 
     .sting-home-hero-copy .sting-contact {
-margin-top: 0;
-margin-bottom: 0;
+        margin-top: 0;
+        margin-bottom: 0;
     }
 
     .sting-home-hero-image {
-height: auto;
-object-fit: cover;
+        height: auto;
+        object-fit: cover;
     }
 }
 
@@ -4235,31 +4245,31 @@ object-fit: cover;
 
     /* Remove the SCM container's desktop width restriction */
     .site-main > .container {
-width: 100% !important;
-max-width: none !important;
-margin-left: 0 !important;
-margin-right: 0 !important;
-padding-left: 0 !important;
-padding-right: 0 !important;
+        width: 100% !important;
+        max-width: none !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
     }
 
     /* Allow the SCM main-content wrapper to use full width
        and remove its desktop box treatment */
     #main_content.modern-content {
-width: 100% !important;
-max-width: none !important;
-margin-left: 0 !important;
-margin-right: 0 !important;
-border-radius: 0 !important;
-box-shadow: none !important;
+        width: 100% !important;
+        max-width: none !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
     }
 
     /* Keep Stingrays content slightly inset from screen edges */
     .sting-page {
-width: 95% !important;
-max-width: none !important;
-margin-left: auto !important;
-margin-right: auto !important;
+        width: 95% !important;
+        max-width: none !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
     }
 }
 
@@ -4270,19 +4280,19 @@ margin-right: auto !important;
 @media (max-width: 575.98px) {
 
     .sting-home-hero-title {
-font-size: 28px;
+        font-size: 28px;
     }
 
     .sting-home-hero-copy .h3 {
-color: #ed2436 !important;
-font-size: 1.3rem !important;
-font-weight: 600 !important;
-padding-top: 12px;
+        color: #ed2436 !important;
+        font-size: 1.3rem !important;
+        font-weight: 600 !important;
+        padding-top: 12px;
     }
 
     .lead {
-font-size: 1.1rem;
-font-weight: 300;
+        font-size: 1.1rem;
+        font-weight: 300;
     }
 }
 
@@ -4293,8 +4303,8 @@ font-weight: 300;
 @media (orientation: landscape) and (min-width: 576px) and (max-width: 767.98px) {
 
     .sting-home-card-col {
-width: 50% !important;
-flex: 0 0 50% !important;
+        width: 50% !important;
+        flex: 0 0 50% !important;
     }
 }
 
@@ -4339,7 +4349,7 @@ flex: 0 0 50% !important;
     }
 }
 
-<style>
+<style >
 /* =========================================================
    SCM CONTACT FORM
    ========================================================= */
@@ -4615,6 +4625,7 @@ for accessibility.
     outline: 3px solid rgba(37, 175, 126, .35) !important;
     outline-offset: 3px;
 }
+
 /* =========================================================
    MOBILE
    ========================================================= */
@@ -4634,8 +4645,7 @@ for accessibility.
     }
 }
 
-</style>
-
+</style >
 /*
 =========================================================
 END OF SALISBURY STINGRAYS MASTER STYLESHEET v3.6.2
