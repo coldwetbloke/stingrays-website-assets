@@ -131,6 +131,7 @@ v3.6.0 (11 August 2026)
 v3.6.2 (29 August 2026)
 • Corrected the generated forgotten-password button selector so it does not depend on an explicit type="submit" attribute
 • Matched the reset button to the existing green outlined login button, including hover and keyboard-focus states
+• Matched the reset button width to the 210px login button while retaining mobile-safe sizing
 • Kept the disabled reset action visibly branded while retaining a clear inactive state
 
 IMPORTANT
@@ -2974,7 +2975,8 @@ navigation or other website components.
 /* Reset password submit button */
 #forgot button.btn {
     display: inline-flex !important;
-    width: 100% !important;
+    width: 210px !important;
+    max-width: 100% !important;
     min-width: 0 !important;
     align-items: center !important;
     justify-content: center !important;
