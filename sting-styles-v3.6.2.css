@@ -548,8 +548,9 @@ navigation or other website components.
 /* ===== SWIM SCHOOL CALENDAR ===== */
 
 .ss-calendar-wrap {
-    max-width: 1200px;
-    margin: 0 auto 40px;
+    width: 100%;
+    max-width: none;
+    margin: 0 0 40px;
     color: #333;
 }
 
